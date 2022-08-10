@@ -5,9 +5,9 @@ import { GameApp } from "./GameApp";
 import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <BrowserRouter>
       <GameApp />
     </BrowserRouter>
-  </React.StrictMode>
+  // </React.StrictMode>
 );
