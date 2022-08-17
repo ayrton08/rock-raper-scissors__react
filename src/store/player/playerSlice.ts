@@ -3,9 +3,17 @@ import { createSlice } from "@reduxjs/toolkit";
 export const playerSlice = createSlice({
   name: "player",
   initialState: {
-    fullname: null,
+    fullnamePlayerOne: null,
+    fullnamePlayerTwo: null,
   },
-  reducers: {},
+  reducers: {
+    setNamePlayerOne: (state, action) => {
+      state.fullnamePlayerOne = action.payload;
+    },
+    setNamePlayerTwo: (state, action) => {
+      state.fullnamePlayerTwo = action.payload;
+    },
+  },
 });
 
-export const {} = playerSlice.actions;
+export const { setNamePlayerOne, setNamePlayerTwo } = playerSlice.actions;
