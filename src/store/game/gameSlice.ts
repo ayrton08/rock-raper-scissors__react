@@ -7,6 +7,9 @@ export const gameSlice = createSlice({
     player: null,
     userId: null,
     roomId: null,
+    rtdbRoomId: null,
+    dataRoom: {},
+    myPlay: "",
   },
   reducers: {
     setPlayerOn: (state, action) => {
@@ -19,7 +22,17 @@ export const gameSlice = createSlice({
     setRoomId: (state, { payload }) => {
       state.roomId = payload;
     },
+    setRtdbRoomId: (state, { payload }) => {
+      state.rtdbRoomId = payload;
+    },
+    setDataRoom: (state, { payload }) => {
+      state.dataRoom = payload;
+    },
+    setMyPlay: (state, { payload }) => {
+      state.myPlay = payload;
+    },
   },
 });
 
-export const { setPlayerOn, setUserId, setRoomId } = gameSlice.actions;
+export const { setPlayerOn, setUserId, setRoomId, setRtdbRoomId, setDataRoom , setMyPlay} =
+  gameSlice.actions;
