@@ -34,5 +34,11 @@ export const gameSlice = createSlice({
   },
 });
 
-export const { setPlayerOn, setUserId, setRoomId, setRtdbRoomId, setDataRoom , setMyPlay} =
-  gameSlice.actions;
+export const {
+  setPlayerOn,
+  setUserId,
+  setRoomId,
+  setRtdbRoomId,
+  setDataRoom,
+  setMyPlay,
+} = gameSlice.actions;

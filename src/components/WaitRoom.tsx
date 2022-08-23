@@ -3,16 +3,17 @@ import { useSetStatus } from "../hooks/useSetStatus";
 import { ChoosePlay } from "./ChoosePlay";
 
 export const WaitRoom = () => {
-  const { dataRoom, setStatus } = useSetStatus();
+  const { dataRoom, setStatus, player } = useSetStatus();
 
-  setStatus(true);
+  if (player === 1) {
+    setStatus(true);
+  }
 
   const setOnline = () => {
-    console.log("soy el button jugar");
-    console.log({ dataRoom });
+    setStatus(true);
   };
 
-  return dataRoom.jugador1 && dataRoom.jugador2 ? (
+  return dataRoom.jugador1.online & dataRoom.jugador2.online ? (
     <ChoosePlay />
   ) : (
     <Grid

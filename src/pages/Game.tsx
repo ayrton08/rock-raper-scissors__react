@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { WaitRoom } from "../components/WaitRoom";
 import { useListenRoom } from "../hooks/useListenRoom";
 import { useSetStatus } from "../hooks/useSetStatus";
+import { AuthLayout } from "../layout/AuthLayout";
 
 export const Game = () => {
   const { setStatus } = useSetStatus();
@@ -16,17 +17,17 @@ export const Game = () => {
 
   useListenRoom();
 
-  useEffect(() => {
-    console.log(dataRoom);
-  }, [dataRoom]);
+  
 
   return (
     <>
-      {dataRoom.jugador1 && dataRoom.jugador2 ? (
-        <WaitRoom />
-      ) : (
-        <h2>Share the code: {roomId} with your opponent</h2>
-      )}
+      <AuthLayout title="Game">
+        {dataRoom.jugador1?.status & dataRoom.jugador2?.status ? (
+          <WaitRoom />
+        ) : (
+          <h2>Share the code: {roomId} with your opponent</h2>
+        )}
+      </AuthLayout>
     </>
   );
 };

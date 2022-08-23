@@ -26,9 +26,16 @@ export const ChoosePlay = () => {
 
   const navigate = useNavigate();
 
-  setTimeout(() => {
-    navigate("/result", { replace: true });
-  }, 5000);
+  // useEffect(()=>{
+    
+  //   if(myPlay !== ""){
+
+  //   }
+  //   setTimeout(() => {
+  //     navigate("/result", { replace: true });
+  //   }, 5000);
+
+  // },[])
 
   useEffect(() => {
     if (gamble !== "") {

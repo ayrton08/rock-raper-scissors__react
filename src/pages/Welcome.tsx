@@ -20,7 +20,6 @@ export const Welcome = () => {
 
   const enterARoom = () => {
     dispatch(setPlayerOn(2));
-
   };
 
   useEffect(() => {
@@ -49,6 +48,9 @@ export const Welcome = () => {
             justifyContent="center"
             alignContent="center"
             direction="column"
+            sx={{
+              gap: "30px",
+            }}
           >
             <h1>Welcome</h1>
             <Button onClick={newGame} variant="contained">
