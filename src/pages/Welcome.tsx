@@ -5,17 +5,17 @@ import ArrowForwardTwoToneIcon from "@mui/icons-material/ArrowForwardTwoTone";
 import { useForm } from "../hooks/useForm";
 import { setNamePlayerOne } from "../store/player/playerSlice";
 import { useNavigate } from "react-router-dom";
-import { signIn } from "../store/game/thunks";
+import { askNewRoom, signIn } from "../store/game/thunks";
+import { useEffect } from "react";
 
-const initialState = {
+const initialState: { fullname: string } = {
   fullname: "",
 };
 
 export const Welcome = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { playerOn, player } = useSelector((state) => state.game);
-  console.log(player);
+  const { playerOn, player, userId } = useSelector((state) => state.game);
 
   const { fullname, onInputChange } = useForm(initialState);
 
@@ -24,13 +24,19 @@ export const Welcome = () => {
   };
   const startGame = () => {
     dispatch(setNamePlayerOne(fullname));
-    signIn(player);
-    navigate("/game", { replace: true });
+    dispatch(signIn(fullname));
   };
 
   const enterARoom = () => {
     // todo: la funcion que me permite entrar a la room
   };
+
+  useEffect(() => {
+    if (userId !== null) {
+      dispatch(askNewRoom(userId));
+      navigate("/game", { replace: true });
+    }
+  }, [userId]);
 
   return (
     <>

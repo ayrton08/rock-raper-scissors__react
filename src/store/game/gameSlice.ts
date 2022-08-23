@@ -6,16 +6,20 @@ export const gameSlice = createSlice({
     playerOn: false,
     player: null,
     userId: null,
+    roomId: null,
   },
   reducers: {
     setPlayerOn: (state, action) => {
       state.playerOn = true;
       state.player = action.payload;
     },
-    setUserId: (state, action) => {
-      state.userId = action.payload;
+    setUserId: (state, { payload }) => {
+      state.userId = payload;
+    },
+    setRoomId: (state, { payload }) => {
+      state.roomId = payload;
     },
   },
 });
 
-export const { setPlayerOn, setUserId } = gameSlice.actions;
+export const { setPlayerOn, setUserId, setRoomId } = gameSlice.actions;
