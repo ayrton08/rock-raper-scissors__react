@@ -9,7 +9,8 @@ export const gameSlice = createSlice({
     roomId: null,
     rtdbRoomId: null,
     dataRoom: {},
-    myPlay: "",
+    myPlay: null,
+    resultGame: null,
   },
   reducers: {
     setPlayerOn: (state, action) => {
@@ -31,6 +32,13 @@ export const gameSlice = createSlice({
     setMyPlay: (state, { payload }) => {
       state.myPlay = payload;
     },
+    setResultGame: (state, { payload }) => {
+      state.resultGame = payload;
+    },
+    cleanPlay: (state) => {
+      state.myPlay = null;
+      state.resultGame = null;
+    },
   },
 });
 
@@ -41,4 +49,5 @@ export const {
   setRtdbRoomId,
   setDataRoom,
   setMyPlay,
+  setResultGame,
 } = gameSlice.actions;
