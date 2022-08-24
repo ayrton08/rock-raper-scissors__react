@@ -31,8 +31,15 @@ export const Result = () => {
       alignItems="center"
       sx={{ height: "100vh" }}
     >
-      <Grid item>{play[dataRoom.jugador2.choise]}</Grid>
-      <Grid item>{play[dataRoom.jugador1.choise]}</Grid>
+      <Grid
+        item
+        className="img-thumbnail animate__animated animate__fadeInDown"
+      >
+        {play[dataRoom.jugador2.choise]}
+      </Grid>
+      <Grid item className="img-thumbnail animate__animated animate__fadeInUp">
+        {play[dataRoom.jugador1.choise]}
+      </Grid>
     </Grid>
   ) : (
     <ResultPlay />

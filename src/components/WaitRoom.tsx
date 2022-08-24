@@ -8,15 +8,14 @@ export const WaitRoom = () => {
   const [isWaiting, setIsWaiting] = useState(false);
 
   useEffect(() => {
-    if (player === 1) {
-      setStatus(false);
-    }
+    setStatus(false);
   }, []);
 
   const setOnline = () => {
     setIsWaiting(true);
     setStatus(true);
   };
+  console.log({ dataRoom });
 
   return dataRoom.jugador1.online & dataRoom.jugador2.online ? (
     <ChoosePlay />
@@ -24,13 +23,17 @@ export const WaitRoom = () => {
     <Grid
       container
       justifyContent="center"
+      alignItems="center"
       direction="column"
       sx={{
         height: "100vh",
       }}
     >
-      // todo: colocar el nombre del oponente
-      <h3>Waiting the opponent...</h3>
+      {player === 1 ? (
+        <h3>Waiting {dataRoom.jugador2.fullName}... press play</h3>
+      ) : (
+        <h3>Waiting {dataRoom.jugador1.fullName}... press play</h3>
+      )}
       <CircularProgress color="success" />
     </Grid>
   ) : (

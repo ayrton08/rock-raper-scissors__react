@@ -1,10 +1,13 @@
 import { Button, Grid } from "@mui/material";
 import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { getWinner } from "../helpers";
 import { useSetStatus } from "../hooks/useSetStatus";
+import { cleanPlay } from "../store/game/gameSlice";
 
 export const ResultPlay = () => {
+  const dispatch = useDispatch()
   const { dataRoom, player, resultGame, setWhoWin } = useSetStatus();
   const navigate = useNavigate();
 
@@ -18,6 +21,7 @@ export const ResultPlay = () => {
   // todo : hacer los componentes de ganaste y perdiste
 
   const playAgain = () => {
+    dispatch(cleanPlay())
     navigate("/game", { replace: true });
   };
 
@@ -35,7 +39,7 @@ export const ResultPlay = () => {
         {resultGame === "win" ? <div>Ganaste</div> : <div>Perdiste</div>}
 
         <Button variant="contained" onClick={playAgain}>
-          PLay Again
+          Play Again
         </Button>
       </Grid>
     </Grid>
