@@ -7,8 +7,10 @@ import { useSetStatus } from "../hooks/useSetStatus";
 import { useState } from "react";
 
 export const Result = () => {
-  const { dataRoom } = useSetStatus();
+  const { dataRoom, setStatus } = useSetStatus();
   const [isPlaying, setIsPlaying] = useState(true);
+
+  setStatus(false);
 
   const play = {
     paper: <NoteIcon sx={{ fontSize: 100 }} />,

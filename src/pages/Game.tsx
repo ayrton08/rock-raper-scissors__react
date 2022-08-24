@@ -13,7 +13,7 @@ export const Game = () => {
 
   useEffect(() => {
     setStatus(false);
-  }, []);
+  }, [player]);
 
   useListenRoom();
 
