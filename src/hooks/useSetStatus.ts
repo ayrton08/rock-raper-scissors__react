@@ -62,6 +62,7 @@ export const useSetStatus = () => {
     dataRoom,
     myPlay,
     resultGame,
+    roomId,
 
     setStatus,
     setWhoWin,

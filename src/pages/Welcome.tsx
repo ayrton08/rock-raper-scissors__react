@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setPlayerOn } from "../store/game/gameSlice";
 import { useNavigate } from "react-router-dom";
 import { accessToRoom, askNewRoom, getRtdbRoomId } from "../store/game/thunks";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { EnterRoom } from "../components/EnterRoom";
 import { NewGame } from "../components/NewGame";
 
@@ -13,13 +13,20 @@ export const Welcome = () => {
   const { playerOn, player, userId, roomId } = useSelector(
     (state) => state.game
   );
+  const [efect, setEfect] = useState("");
 
   const newGame = () => {
-    dispatch(setPlayerOn(1));
+    setEfect("animate__animated animate__fadeOutUp");
+    setTimeout(() => {
+      dispatch(setPlayerOn(1));
+    }, 200);
   };
 
   const enterARoom = () => {
-    dispatch(setPlayerOn(2));
+    setEfect("animate__animated animate__fadeOutUp");
+    setTimeout(() => {
+      dispatch(setPlayerOn(2));
+    }, 200);
   };
 
   useEffect(() => {
@@ -38,7 +45,12 @@ export const Welcome = () => {
 
   return (
     <>
-      <Grid container justifyContent="center" height="100vh">
+      <Grid
+        container
+        justifyContent="center"
+        height="100vh"
+        className="welcome"
+      >
         {playerOn && player === 1 && <NewGame />}
         {playerOn && player === 2 && <EnterRoom />}
 
@@ -46,19 +58,41 @@ export const Welcome = () => {
           <Grid
             container
             justifyContent="center"
-            alignContent="center"
+            alignItems="center"
             direction="column"
             sx={{
               gap: "30px",
             }}
+            className={efect}
           >
-            <h1>Welcome</h1>
-            <Button onClick={newGame} variant="contained">
-              New Game
-            </Button>
-            <Button onClick={enterARoom} variant="contained">
-              Enter a Room
-            </Button>
+            <h1 className="title">Rock, paper or scissors</h1>
+            <h3 className="efect-machine">Welcome, let's play...</h3>
+            <Grid container justifyContent="center" sx={{ gap: "40px" }}>
+              <Button
+                onClick={newGame}
+                variant="contained"
+                sx={{
+                  width: "200px",
+                  height: "80px",
+                  fontSize: "24px",
+                  fontFamily: "Anton",
+                }}
+              >
+                New Game
+              </Button>
+              <Button
+                onClick={enterARoom}
+                variant="contained"
+                sx={{
+                  width: "200px",
+                  height: "80px",
+                  fontSize: "24px",
+                  fontFamily: "Anton",
+                }}
+              >
+                Enter a Room
+              </Button>
+            </Grid>
           </Grid>
         )}
       </Grid>

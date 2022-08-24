@@ -50,5 +50,5 @@ export const {
   setDataRoom,
   setMyPlay,
   setResultGame,
-  cleanPlay
+  cleanPlay,
 } = gameSlice.actions;

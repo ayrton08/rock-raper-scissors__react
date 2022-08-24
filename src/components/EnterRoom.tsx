@@ -45,13 +45,15 @@ export const EnterRoom = () => {
   return !rtdbRoomId ? (
     <Grid
       container
-      justifyContent="center"
+      justifyContent="space-evenly"
+      alignSelf="center"
       alignContent="center"
       alignItems="center"
       direction="column"
-      sx={{ width: "500px" }}
+      sx={{ width: "500px", height: "400px" }}
+      className="animate__animated animate__fadeInUp glass-efect"
     >
-      <h3>Code Room</h3>
+      <h3 className="your-name">Code Room</h3>
       <TextField
         type="text"
         placeholder="Code Room"
@@ -60,18 +62,25 @@ export const EnterRoom = () => {
         value={code}
         onChange={onInputChange}
       />
-      <Button onClick={onIntoRoom}>Enter</Button>
+      <Button
+        onClick={onIntoRoom}
+        sx={{ fontSize: "20px", border: "solid 1px" }}
+      >
+        Enter
+      </Button>
     </Grid>
   ) : (
     <Grid
       container
-      justifyContent="center"
+      justifyContent="space-evenly"
+      alignSelf="center"
       alignContent="center"
       alignItems="center"
       direction="column"
-      sx={{ width: "500px" }}
+      sx={{ width: "500px", height: "400px" }}
+      className="glass-efect"
     >
-      <h3>Your Name</h3>
+      <h3 className="your-name">Your Name</h3>
       <TextField
         type="text"
         placeholder="Your Name"
@@ -80,7 +89,7 @@ export const EnterRoom = () => {
         value={fullname}
         onChange={inputName}
       />
-      <Button onClick={start}>
+      <Button onClick={start} sx={{ fontSize: "20px", border: "solid 1px" }}>
         <ArrowForwardTwoToneIcon />
         Start
       </Button>

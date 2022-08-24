@@ -1,3 +1,81 @@
 body {
   margin: 0;
 }
+
+.welcome {
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  height: 100vh;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.glass-efect {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0)
+  );
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 32px;
+  padding: 40px;
+}
+
+.title {
+  font-size: 55px;
+  font-family: "Silkscreen", cursive;
+}
+
+.welcome-text {
+  font-family: "Anton", sans-serif;
+}
+
+.efect-machine {
+  font-size: 40px;
+  display: block;
+  font-family: "Anton", sans-serif;
+  white-space: "nowrap";
+  border-right: 4px solid;
+  height: 60px;
+  width: 20ch;
+  letter-spacing: 2px;
+  color: white;
+
+
+  animation: typing 2s steps(25), blink 0.5s infinite step-end alternate;
+  overflow: hidden;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+.your-name {
+  font-size: 40px;
+  letter-spacing: 2px;
+  font-family: "Anton", sans-serif;
+}
+.box-shadow {
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2);
+}

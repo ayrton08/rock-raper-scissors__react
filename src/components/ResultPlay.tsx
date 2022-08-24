@@ -7,7 +7,7 @@ import { useSetStatus } from "../hooks/useSetStatus";
 import { cleanPlay } from "../store/game/gameSlice";
 
 export const ResultPlay = () => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const { dataRoom, player, resultGame, setWhoWin } = useSetStatus();
   const navigate = useNavigate();
 
@@ -21,7 +21,7 @@ export const ResultPlay = () => {
   // todo : hacer los componentes de ganaste y perdiste
 
   const playAgain = () => {
-    dispatch(cleanPlay())
+    dispatch(cleanPlay());
     navigate("/game", { replace: true });
   };
 
@@ -33,10 +33,24 @@ export const ResultPlay = () => {
       alignItems="center"
       sx={{
         height: "100vh",
+        backgroundColor:
+          resultGame === "win" && player === 1
+            ? "green"
+            : resultGame === "win" && player === 2
+            ? "green"
+            : resultGame === "tie"
+            ? "orange"
+            : "red",
       }}
     >
       <Grid>
-        {resultGame === "win" ? <div>Ganaste</div> : <div>Perdiste</div>}
+        {resultGame === "win" ? (
+          <div>Ganaste</div>
+        ) : resultGame === "tie" ? (
+          <div>Empate</div>
+        ) : (
+          <div>Perdiste</div>
+        )}
 
         <Button variant="contained" onClick={playAgain}>
           Play Again

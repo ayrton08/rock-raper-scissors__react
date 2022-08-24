@@ -15,7 +15,6 @@ export const WaitRoom = () => {
     setIsWaiting(true);
     setStatus(true);
   };
-  console.log({ dataRoom });
 
   return dataRoom.jugador1.online & dataRoom.jugador2.online ? (
     <ChoosePlay />
@@ -26,7 +25,8 @@ export const WaitRoom = () => {
       alignItems="center"
       direction="column"
       sx={{
-        height: "100vh",
+        height: "500px",
+        gap: "40px"
       }}
     >
       {player === 1 ? (
@@ -43,11 +43,13 @@ export const WaitRoom = () => {
       alignContent="center"
       alignItems="center"
       direction="column"
-      sx={{ width: "100%", height: "100vh", gap: "50px" }}
+      sx={{ width: "100%", height: "500px", gap: "50px" }}
     >
-      <h3>Presione Jugar</h3>
+      <h3>
+        Press <strong>play</strong> to start
+      </h3>
       <Button onClick={setOnline} variant="contained">
-        Jugar
+        Play
       </Button>
     </Grid>
   );
