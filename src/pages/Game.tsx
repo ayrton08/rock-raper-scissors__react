@@ -17,8 +17,6 @@ export const Game = () => {
 
   useListenRoom();
 
-  
-
   return (
     <>
       <AuthLayout title="Game">

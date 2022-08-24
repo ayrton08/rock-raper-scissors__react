@@ -1,9 +1,9 @@
 import { Button, Grid } from "@mui/material";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
-import { useNavigate } from "react-router-dom";
-import ContentCutIcon from "@mui/icons-material/ContentCut";
 import Brightness1Icon from "@mui/icons-material/Brightness1";
 import NoteIcon from "@mui/icons-material/Note";
+import ContentCutIcon from "@mui/icons-material/ContentCut";
+import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useSetStatus } from "../hooks/useSetStatus";
 import { setPlay } from "../store/game/thunks";
