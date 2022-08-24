@@ -8,6 +8,24 @@ body {
   animation: gradient 15s ease infinite;
   height: 100vh;
 }
+.winner {
+  background: linear-gradient(-45deg, green, #AED581, #28b463, #28b463);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  height: 100vh;
+}
+.loser {
+  background: linear-gradient(-45deg, #ff5722, #EF9A9A, #c0392b, #c0392b);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  height: 100vh;
+}
+.tie {
+  background: linear-gradient(-45deg, orange, orange, #ffb74d, #d35400);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  height: 100vh;
+}
 
 @keyframes gradient {
   0% {
@@ -55,7 +73,6 @@ body {
   letter-spacing: 2px;
   color: white;
 
-
   animation: typing 2s steps(25), blink 0.5s infinite step-end alternate;
   overflow: hidden;
 }
@@ -78,4 +95,9 @@ body {
 }
 .box-shadow {
   box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2);
+}
+hr {
+  height: 0px;
+  border: none;
+  border-top: 1px solid black;
 }

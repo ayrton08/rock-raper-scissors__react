@@ -13,9 +13,9 @@ export const Result = () => {
   setStatus(false);
 
   const play = {
-    paper: <NoteIcon sx={{ fontSize: 100 }} />,
-    scissor: <ContentCutIcon sx={{ fontSize: 100 }} />,
-    rock: <Brightness1Icon sx={{ fontSize: 100 }} />,
+    paper: <NoteIcon sx={{ fontSize: 150 }} />,
+    scissor: <ContentCutIcon sx={{ fontSize: 150 }} />,
+    rock: <Brightness1Icon sx={{ fontSize: 150 }} />,
   };
 
   setTimeout(() => {
@@ -30,6 +30,7 @@ export const Result = () => {
       direction="column"
       alignItems="center"
       sx={{ height: "100vh" }}
+      className="welcome"
     >
       <Grid
         item

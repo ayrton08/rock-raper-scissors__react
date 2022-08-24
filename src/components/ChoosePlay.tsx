@@ -9,12 +9,14 @@ import { useSetStatus } from "../hooks/useSetStatus";
 import { setPlay } from "../store/game/thunks";
 import { useEffect, useState } from "react";
 import { setMyPlay } from "../store/game/gameSlice";
+import Divider from "@mui/material/Divider";
 
 export const ChoosePlay = () => {
   const dispatch = useDispatch();
   const { dataRoom, player, rtdbRoomId, myPlay } = useSetStatus();
   const [name, setName] = useState("");
   const [gamble, setGamble] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (player === 1) {
@@ -23,8 +25,6 @@ export const ChoosePlay = () => {
       setName(dataRoom.jugador2.fullName);
     }
   }, []);
-
-  const navigate = useNavigate();
 
   useEffect(() => {
     if (myPlay !== "") {
@@ -55,7 +55,7 @@ export const ChoosePlay = () => {
         container
         justifyContent="space-around"
         direction="column"
-        sx={{ height: "100vh" }}
+        sx={{ height: "100%" }}
       >
         <Grid container justifyContent="center">
           <CountdownCircleTimer
@@ -68,6 +68,7 @@ export const ChoosePlay = () => {
           </CountdownCircleTimer>
         </Grid>
 
+        <Divider variant="middle" />
         <Grid container justifyContent="center" sx={{ gap: "50px" }}>
           <Button onClick={() => setGamble("rock")}>
             <Brightness1Icon sx={{ fontSize: 100 }} />

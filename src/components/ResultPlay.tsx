@@ -31,16 +31,25 @@ export const ResultPlay = () => {
       direction="row"
       justifyContent="center"
       alignItems="center"
+      className={
+        resultGame === "win" && player === 1
+          ? "winner"
+          : resultGame === "win" && player === 2
+          ? "winner"
+          : resultGame === "tie"
+          ? "tie"
+          : "loser"
+      }
       sx={{
         height: "100vh",
-        backgroundColor:
-          resultGame === "win" && player === 1
-            ? "green"
-            : resultGame === "win" && player === 2
-            ? "green"
-            : resultGame === "tie"
-            ? "orange"
-            : "red",
+        // backgroundColor:
+        //   resultGame === "win" && player === 1
+        //     ? "green"
+        //     : resultGame === "win" && player === 2
+        //     ? "green"
+        //     : resultGame === "tie"
+        //     ? "orange"
+        //     : "red",
       }}
     >
       <Grid>
