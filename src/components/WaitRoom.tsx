@@ -4,12 +4,14 @@ import { useSetStatus } from "../hooks/useSetStatus";
 import { ChoosePlay } from "./ChoosePlay";
 
 export const WaitRoom = () => {
-  const { dataRoom, setStatus, player } = useSetStatus();
+  const { dataRoom, setStatus, player, myPlay } = useSetStatus();
   const [isWaiting, setIsWaiting] = useState(false);
 
-  useEffect(() => {
-    setStatus(false);
-  }, []);
+  // useEffect(() => {
+  //   if (myPlay) {
+  //     setStatus(false);
+  //   }
+  // }, [myPlay]);
 
   const setOnline = () => {
     setIsWaiting(true);
@@ -26,13 +28,17 @@ export const WaitRoom = () => {
       direction="column"
       sx={{
         height: "500px",
-        gap: "40px"
+        gap: "40px",
       }}
     >
       {player === 1 ? (
-        <h3>Waiting {dataRoom.jugador2.fullName}... press play</h3>
+        <h3 style={{ fontSize: "25px" }}>
+          Waiting {dataRoom.jugador2.fullName}... press play
+        </h3>
       ) : (
-        <h3>Waiting {dataRoom.jugador1.fullName}... press play</h3>
+        <h3 style={{ fontSize: "25px" }}>
+          Waiting {dataRoom.jugador1.fullName}... press play
+        </h3>
       )}
       <CircularProgress color="success" />
     </Grid>
@@ -45,10 +51,23 @@ export const WaitRoom = () => {
       direction="column"
       sx={{ width: "100%", height: "500px", gap: "50px" }}
     >
-      <h3>
-        Press <strong>play</strong> to start
+      <h3 style={{ fontSize: "25px" }}>
+        Press{" "}
+        <i style={{ color: "green", cursor: "pointer" }} onClick={setOnline}>
+          play
+        </i>{" "}
+        to start
       </h3>
-      <Button onClick={setOnline} variant="contained">
+      <Button
+        onClick={setOnline}
+        variant="contained"
+        style={{
+          fontSize: "20px",
+          width: "120px",
+          fontFamily: "Anton",
+          letterSpacing: "2px",
+        }}
+      >
         Play
       </Button>
     </Grid>

@@ -6,7 +6,7 @@ import { cleanPlay } from "../../store/game/gameSlice";
 
 export const HistoryGame = ({ result }) => {
   const dispatch = useDispatch();
-  const { dataRoom, player, resultGame, setWhoWin } = useSetStatus();
+  const { dataRoom } = useSetStatus();
   const navigate = useNavigate();
 
   const playAgain = () => {
@@ -38,7 +38,7 @@ export const HistoryGame = ({ result }) => {
               fontFamily: "Courier New",
             }}
           >
-            {dataRoom.history.player1 || 0}
+            {dataRoom.history?.player1 || 0}
           </strong>
         </Grid>
         <Grid>
@@ -50,7 +50,7 @@ export const HistoryGame = ({ result }) => {
               fontFamily: "Courier New",
             }}
           >
-            {dataRoom.history.player2 || 0}
+            {dataRoom.history?.player2 || 0}
           </strong>
         </Grid>
       </Grid>
@@ -62,8 +62,11 @@ export const HistoryGame = ({ result }) => {
           alignSelf: "center",
           backgroundColor: "#28B463",
           fontWeight: "bold",
+          fontFamily: "Anton",
+          letterSpacing: "3px",
         }}
         onClick={playAgain}
+        className="animate__animated animate__tada"
       >
         Play Again
       </Button>

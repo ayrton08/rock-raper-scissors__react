@@ -13,7 +13,13 @@ export const Game = () => {
 
   useEffect(() => {
     setStatus(false);
-  }, [player]);
+  }, []);
+
+  useEffect(() => {
+    if (!dataRoom.jugador1?.fullName) {
+      setStatus(false);
+    }
+  }, [dataRoom]);
 
   useListenRoom();
 

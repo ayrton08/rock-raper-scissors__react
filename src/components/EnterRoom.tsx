@@ -1,7 +1,7 @@
-import { Grid, TextField, Button } from "@mui/material";
+import { Grid, TextField, Button, Alert } from "@mui/material";
 import ArrowForwardTwoToneIcon from "@mui/icons-material/ArrowForwardTwoTone";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "../hooks/useForm";
 import { setRoomId } from "../store/game/gameSlice";
@@ -22,21 +22,24 @@ export const EnterRoom = () => {
   const { code, onInputChange } = useForm(initialState);
   const { fullname, onInputChange: inputName } = useForm(initialStateName);
   const dispatch = useDispatch();
-  const history = localStorage.getItem("historyGame");
-
-  // if (!history) {
-  //   localStorage.setItem("historyGame", "0");
-  // }
+  const [error, setError] = useState(false);
 
   const { playerOn, player, userId, roomId, rtdbRoomId } = useSelector(
     (state) => state.game
   );
 
   const onIntoRoom = () => {
+    if (code.length <= 0) {
+      return setError(true);
+    }
+
     dispatch(setRoomId(code));
   };
 
   const start = () => {
+    if (fullname.length <= 0) {
+      return setError(true);
+    }
     dispatch(setNamePlayerTwo(fullname));
     navigate("/game", { replace: true });
   };
@@ -60,13 +63,22 @@ export const EnterRoom = () => {
     >
       <h3 className="your-name">Code Room</h3>
       <TextField
-        type="text"
+        type="number"
         placeholder="Code Room"
         fullWidth
         name="code"
         value={code}
         onChange={onInputChange}
+        autoComplete="off"
+        sx={{
+          width: "200px",
+        }}
       />
+      <Grid container display={!!error ? "" : "none"} sx={{ mt: 1, mb: 1 }}>
+        <Grid item xs={12}>
+          <Alert severity="error">Insert a code room</Alert>
+        </Grid>
+      </Grid>
       <Button
         onClick={onIntoRoom}
         sx={{ fontSize: "20px", border: "solid 1px" }}
@@ -94,6 +106,11 @@ export const EnterRoom = () => {
         value={fullname}
         onChange={inputName}
       />
+      <Grid container display={!!error ? "" : "none"} sx={{ mt: 1, mb: 1 }}>
+        <Grid item xs={12}>
+          <Alert severity="error">Insert a name</Alert>
+        </Grid>
+      </Grid>
       <Button onClick={start} sx={{ fontSize: "20px", border: "solid 1px" }}>
         <ArrowForwardTwoToneIcon />
         Start

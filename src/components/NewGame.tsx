@@ -1,4 +1,10 @@
-import { Button, CircularProgress, Grid, TextField } from "@mui/material";
+import {
+  Button,
+  CircularProgress,
+  Grid,
+  TextField,
+  Alert,
+} from "@mui/material";
 import ArrowForwardTwoToneIcon from "@mui/icons-material/ArrowForwardTwoTone";
 import { useForm } from "../hooks/useForm";
 import { useDispatch } from "react-redux";
@@ -15,10 +21,14 @@ export const NewGame = () => {
   const { roomId } = useSetStatus();
   const { fullname, onInputChange } = useForm(initialState);
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(false);
 
   const dispatch = useDispatch();
 
   const startGame = () => {
+    if (fullname.length <= 0) {
+      return setError(true);
+    }
     setIsLoading(true);
     dispatch(setNamePlayerOne(fullname));
     dispatch(signIn(fullname));
@@ -56,12 +66,19 @@ export const NewGame = () => {
       <h3 className="your-name">Your Name</h3>
       <TextField
         type="text"
-        placeholder="Your Name"
+        placeholder={"Your Name"}
         fullWidth
         name="fullname"
         value={fullname}
         onChange={onInputChange}
+        error={error}
+        // autoComplete="off"
       />
+      <Grid container display={!!error ? "" : "none"} sx={{ mt: 1, mb: 1 }}>
+        <Grid item xs={12}>
+          <Alert severity="error">Insert a name</Alert>
+        </Grid>
+      </Grid>
       <Button
         onClick={startGame}
         sx={{ fontSize: "20px", border: "solid 1px" }}

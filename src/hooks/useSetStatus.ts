@@ -62,7 +62,7 @@ export const useSetStatus = () => {
 
   const history1 = dataRoom.history?.player1 || 0;
   const history2 = dataRoom.history?.player2 || 0;
-  const playerString = player.toString();
+  const playerString = player?.toString() || 0
 
   const setHistoryGame = () => {
     if (player === 1 && resultGame === "win") {

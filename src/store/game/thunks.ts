@@ -38,13 +38,15 @@ export const setStatusPlayer = ({
   rtdbRoomId,
 }: SetStatus) => {
   return async (dispatch: Function) => {
-    const data = await requestApi.post(`/status`, {
-      player,
-      online,
-      name,
-      status: true,
-      rtdbRoomId,
-    });
+    if (player) {
+      await requestApi.post(`/status`, {
+        player,
+        online,
+        name,
+        status: true,
+        rtdbRoomId,
+      });
+    }
   };
 };
 
@@ -75,5 +77,17 @@ export const setHistory = ({ rtdbRoomId, player, victory }) => {
       victory,
     });
     console.log(data);
+  };
+};
+
+export const cleanPlayRoom = ({ name, player, rtdbRoomId }) => {
+  return async (dispatch: Function) => {
+    const { data } = await requestApi.post("/cleanPlay", {
+      name,
+      status: true,
+      online: false,
+      player,
+      rtdbRoomId,
+    });
   };
 };
