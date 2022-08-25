@@ -34,7 +34,9 @@ export const ChoosePlay = () => {
   }, []);
 
   setTimeout(() => {
-    navigate("/result", { replace: true });
+    if (myPlay) {
+      navigate("/result", { replace: true });
+    }
   }, 5000);
 
   useEffect(() => {

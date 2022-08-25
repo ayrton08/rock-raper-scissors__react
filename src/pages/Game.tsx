@@ -1,3 +1,4 @@
+import { Grid } from "@mui/material";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { WaitRoom } from "../components/WaitRoom";
@@ -29,9 +30,18 @@ export const Game = () => {
         {dataRoom.jugador1?.status & dataRoom.jugador2?.status ? (
           <WaitRoom />
         ) : (
-          <h2 className="animate__animated animate__fadeIn">
-            Share the code: {roomId} with your opponent
-          </h2>
+          <Grid
+            container
+            justifyContent="center"
+            alignContent="center"
+            sx={{
+              height: "100%",
+            }}
+          >
+            <h2 className="animate__animated animate__fadeIn">
+              Share the code: {roomId} with your opponent
+            </h2>
+          </Grid>
         )}
       </Layout>
     </>

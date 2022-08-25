@@ -44,8 +44,6 @@ export const Result = () => {
     setIsPlaying(false);
   }, 4000);
 
-  console.log({ dataRoom });
-
   return isPlaying ? (
     <Grid
       container
@@ -55,14 +53,15 @@ export const Result = () => {
       sx={{ height: "100vh" }}
       className="welcome"
     >
-      <Grid
-        item
-        className="img-thumbnail animate__animated animate__fadeInDown"
-      >
-        {play[dataRoom.jugador2.choise]}
+      <Grid item className="animate__animated animate__fadeInDown">
+        {player === 1
+          ? play[dataRoom.jugador2.choise]
+          : play[dataRoom.jugador1.choise]}
       </Grid>
-      <Grid item className="img-thumbnail animate__animated animate__fadeInUp">
-        {play[dataRoom.jugador1.choise]}
+      <Grid item className=" animate__animated animate__fadeInUp">
+        {player === 2
+          ? play[dataRoom.jugador2.choise]
+          : play[dataRoom.jugador1.choise]}
       </Grid>
     </Grid>
   ) : isWaiting ? (

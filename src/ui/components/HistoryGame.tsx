@@ -3,13 +3,34 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useSetStatus } from "../../hooks/useSetStatus";
 import { cleanPlay } from "../../store/game/gameSlice";
+import { cleanPlayRoom } from "../../store/game/thunks";
 
 export const HistoryGame = ({ result }) => {
   const dispatch = useDispatch();
-  const { dataRoom } = useSetStatus();
+  const { dataRoom, player, rtdbRoomId } = useSetStatus();
   const navigate = useNavigate();
 
+  const playerAsString = player.toString();
+
   const playAgain = () => {
+    if (player === 1) {
+      dispatch(
+        cleanPlayRoom({
+          name: dataRoom.jugador1.fullName,
+          player: playerAsString,
+          rtdbRoomId,
+        })
+      );
+    }
+    if (player === 2) {
+      dispatch(
+        cleanPlayRoom({
+          name: dataRoom.jugador2.fullName,
+          player: playerAsString,
+          rtdbRoomId,
+        })
+      );
+    }
     dispatch(cleanPlay());
     navigate("/game", { replace: true });
   };
