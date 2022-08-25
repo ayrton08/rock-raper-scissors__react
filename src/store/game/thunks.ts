@@ -66,3 +66,14 @@ export const setPlay = ({ name, choise, rtdbRoomId, player }) => {
     });
   };
 };
+
+export const setHistory = ({ rtdbRoomId, player, victory }) => {
+  return async (dispatch: Function) => {
+    const { data } = await requestApi.post("/history", {
+      rtdbRoomId,
+      player,
+      victory,
+    });
+    console.log(data);
+  };
+};

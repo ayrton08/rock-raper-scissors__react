@@ -16,6 +16,12 @@ export const NewGame = () => {
   const { fullname, onInputChange } = useForm(initialState);
   const [isLoading, setIsLoading] = useState(false);
 
+  // const history = localStorage.getItem("historyGame");
+
+  // if (!history) {
+  //   localStorage.setItem("historyGame", "0");
+  // }
+
   const dispatch = useDispatch();
 
   const startGame = () => {
@@ -37,6 +43,7 @@ export const NewGame = () => {
       justifyContent="center"
       alignItems="center"
       sx={{ gap: "50px" }}
+      className="animate__animated animate__fadeIn"
     >
       <h4 style={{ fontSize: "30px" }}>Getting the code room</h4>
       <CircularProgress size="60px" />

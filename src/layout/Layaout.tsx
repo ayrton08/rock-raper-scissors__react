@@ -27,7 +27,7 @@ export const Layout = ({ children, title }) => {
           width: { md: 550 },
         }}
       >
-        <Grid container direction="row" justifyContent="center"  >
+        <Grid container direction="row" justifyContent="center" className="animate__animated animate__fadeIn" >
           <Typography variant="h5" sx={{ mb: 1, alignContent: "center" }}>
             {title}
           </Typography>

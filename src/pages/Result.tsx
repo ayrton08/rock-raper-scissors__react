@@ -4,11 +4,36 @@ import Brightness1Icon from "@mui/icons-material/Brightness1";
 import NoteIcon from "@mui/icons-material/Note";
 import ContentCutIcon from "@mui/icons-material/ContentCut";
 import { useSetStatus } from "../hooks/useSetStatus";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { setHistory } from "../store/game/thunks";
+import { useDispatch } from "react-redux";
+import { getWinner } from "../helpers";
 
 export const Result = () => {
-  const { dataRoom, setStatus } = useSetStatus();
+  const {
+    dataRoom,
+    player,
+    myPlay,
+    rtdbRoomId,
+    setStatus,
+    resultGame,
+    setWhoWin,
+    setHistoryGame,
+  } = useSetStatus();
   const [isPlaying, setIsPlaying] = useState(true);
+  const dispatch = useDispatch();
+
+  const result = getWinner(dataRoom.jugador1.choise, dataRoom.jugador2.choise);
+
+  useEffect(() => {
+    if (result) {
+      setWhoWin(result);
+    }
+  }, [result]);
+
+  useEffect(() => {
+    setHistoryGame();
+  }, [resultGame]);
 
   setStatus(false);
 

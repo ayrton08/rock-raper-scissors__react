@@ -1,8 +1,6 @@
 import { Button, Grid } from "@mui/material";
-import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { getWinner } from "../helpers";
 import { useSetStatus } from "../hooks/useSetStatus";
 import { cleanPlay } from "../store/game/gameSlice";
 
@@ -10,13 +8,6 @@ export const ResultPlay = () => {
   const dispatch = useDispatch();
   const { dataRoom, player, resultGame, setWhoWin } = useSetStatus();
   const navigate = useNavigate();
-
-  const result = getWinner(dataRoom.jugador1.choise, dataRoom.jugador2.choise);
-  useEffect(() => {
-    if (result) {
-      setWhoWin(result);
-    }
-  }, [result]);
 
   // todo : hacer los componentes de ganaste y perdiste
 
@@ -42,23 +33,25 @@ export const ResultPlay = () => {
       }
       sx={{
         height: "100vh",
-        // backgroundColor:
-        //   resultGame === "win" && player === 1
-        //     ? "green"
-        //     : resultGame === "win" && player === 2
-        //     ? "green"
-        //     : resultGame === "tie"
-        //     ? "orange"
-        //     : "red",
       }}
     >
       <Grid>
         {resultGame === "win" ? (
-          <div>Ganaste</div>
+          <>
+            <div className="pyro">
+              <div className="before"></div>
+              <div className="after"></div>
+              <div>Ganaste</div>
+            </div>
+          </>
         ) : resultGame === "tie" ? (
           <div>Empate</div>
         ) : (
-          <div>Perdiste</div>
+          <div className="pyro">
+            <div className="before"></div>
+            <div className="after"></div>
+            <div>Perdiste</div>
+          </div>
         )}
 
         <Button variant="contained" onClick={playAgain}>

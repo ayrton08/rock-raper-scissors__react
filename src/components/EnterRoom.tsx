@@ -22,6 +22,11 @@ export const EnterRoom = () => {
   const { code, onInputChange } = useForm(initialState);
   const { fullname, onInputChange: inputName } = useForm(initialStateName);
   const dispatch = useDispatch();
+  const history = localStorage.getItem("historyGame");
+
+  // if (!history) {
+  //   localStorage.setItem("historyGame", "0");
+  // }
 
   const { playerOn, player, userId, roomId, rtdbRoomId } = useSelector(
     (state) => state.game
