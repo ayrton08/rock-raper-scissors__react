@@ -1,63 +1,22 @@
-import { Button, Grid } from "@mui/material";
-import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Grid } from "@mui/material";
 import { useSetStatus } from "../hooks/useSetStatus";
-import { cleanPlay } from "../store/game/gameSlice";
+import { Layout } from "../layout/Layaout";
+import { HistoryGame } from "../ui/components/HistoryGame";
 
 export const ResultPlay = () => {
-  const dispatch = useDispatch();
-  const { dataRoom, player, resultGame, setWhoWin } = useSetStatus();
-  const navigate = useNavigate();
-
-  // todo : hacer los componentes de ganaste y perdiste
-
-  const playAgain = () => {
-    dispatch(cleanPlay());
-    navigate("/game", { replace: true });
-  };
+  const { resultGame } = useSetStatus();
 
   return (
-    <Grid
-      container
-      direction="row"
-      justifyContent="center"
-      alignItems="center"
-      className={
-        resultGame === "win" && player === 1
-          ? "winner"
-          : resultGame === "win" && player === 2
-          ? "winner"
-          : resultGame === "tie"
-          ? "tie"
-          : "loser"
-      }
-      sx={{
-        height: "100vh",
-      }}
-    >
+    <Layout title="History Game">
       <Grid>
         {resultGame === "win" ? (
-          <>
-            <div className="pyro">
-              <div className="before"></div>
-              <div className="after"></div>
-              <div>Ganaste</div>
-            </div>
-          </>
+          <HistoryGame result="Ganaste" />
         ) : resultGame === "tie" ? (
-          <div>Empate</div>
+          <HistoryGame result="Empate" />
         ) : (
-          <div className="pyro">
-            <div className="before"></div>
-            <div className="after"></div>
-            <div>Perdiste</div>
-          </div>
+          <HistoryGame result="Perdiste" />
         )}
-
-        <Button variant="contained" onClick={playAgain}>
-          Play Again
-        </Button>
       </Grid>
-    </Grid>
+    </Layout>
   );
 };

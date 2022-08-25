@@ -1,27 +1,16 @@
-import { Button, Grid } from "@mui/material";
+import { Grid } from "@mui/material";
 import { ResultPlay } from "../components/ResultPlay";
 import Brightness1Icon from "@mui/icons-material/Brightness1";
 import NoteIcon from "@mui/icons-material/Note";
 import ContentCutIcon from "@mui/icons-material/ContentCut";
 import { useSetStatus } from "../hooks/useSetStatus";
 import { useEffect, useState } from "react";
-import { setHistory } from "../store/game/thunks";
-import { useDispatch } from "react-redux";
 import { getWinner } from "../helpers";
 
 export const Result = () => {
-  const {
-    dataRoom,
-    player,
-    myPlay,
-    rtdbRoomId,
-    setStatus,
-    resultGame,
-    setWhoWin,
-    setHistoryGame,
-  } = useSetStatus();
+  const { dataRoom, setStatus, resultGame, setWhoWin, setHistoryGame } =
+    useSetStatus();
   const [isPlaying, setIsPlaying] = useState(true);
-  const dispatch = useDispatch();
 
   const result = getWinner(dataRoom.jugador1.choise, dataRoom.jugador2.choise);
 
@@ -47,7 +36,6 @@ export const Result = () => {
     setIsPlaying(false);
   }, 4000);
 
-  // todo: primero mostrar las dos jugadas y luego el resultado final del ganador y el componente del history
   return isPlaying ? (
     <Grid
       container

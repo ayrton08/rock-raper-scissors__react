@@ -16,12 +16,6 @@ export const NewGame = () => {
   const { fullname, onInputChange } = useForm(initialState);
   const [isLoading, setIsLoading] = useState(false);
 
-  // const history = localStorage.getItem("historyGame");
-
-  // if (!history) {
-  //   localStorage.setItem("historyGame", "0");
-  // }
-
   const dispatch = useDispatch();
 
   const startGame = () => {
