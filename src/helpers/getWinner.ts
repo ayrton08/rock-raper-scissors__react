@@ -1,6 +1,9 @@
 type Play = "rock" | "paper" | "scissor";
 
 export const getWinner = (playOne: Play, playTwo: Play) => {
+  if (!playOne || !playTwo) {
+    return null;
+  }
   if (playOne === "paper" && playTwo === "rock") {
     return "win";
   }

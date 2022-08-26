@@ -40,6 +40,14 @@ export const ChoosePlay = () => {
   }, 5000);
 
   useEffect(() => {
+    if (myPlay) {
+      setTimeout(() => {
+        navigate("/result", { replace: true });
+      }, 1000);
+    }
+  }, [myPlay]);
+
+  useEffect(() => {
     if (location.pathname === "/result") {
       setSelectedPaper(false);
       setSelectedRock(false);

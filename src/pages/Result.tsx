@@ -14,15 +14,22 @@ export const Result = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isWaiting, setIsWaiting] = useState(true);
 
-  const result = getWinner(dataRoom.jugador1.choise, dataRoom.jugador2.choise);
-
   useEffect(() => {
-    if (result) {
+    const result = getWinner(
+      dataRoom.jugador1.choise,
+      dataRoom.jugador2.choise
+    );
+    if (!isWaiting && result) {
+      console.log("resultado", result);
       setWhoWin(result);
     }
-  }, [result]);
+  }, [isPlaying]);
 
   useEffect(() => {
+    const result = getWinner(
+      dataRoom.jugador1.choise,
+      dataRoom.jugador2.choise
+    );
     setHistoryGame();
   }, [resultGame]);
 
@@ -37,12 +44,12 @@ export const Result = () => {
       setStatus(false);
       setIsWaiting(false);
       setIsPlaying(true);
-    }
-  }, [resultGame]);
 
-  setTimeout(() => {
-    setIsPlaying(false);
-  }, 4000);
+      setTimeout(() => {
+        setIsPlaying(false);
+      }, 4000);
+    }
+  }, [dataRoom]);
 
   return isPlaying ? (
     <Grid
