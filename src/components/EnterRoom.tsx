@@ -28,7 +28,9 @@ export const EnterRoom = () => {
     (state) => state.game
   );
 
-  dispatch(setFirstRound(false));
+  useEffect(() => {
+    dispatch(setFirstRound(false));
+  }, []);
 
   const onIntoRoom = () => {
     if (code.length <= 0) {

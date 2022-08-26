@@ -80,8 +80,8 @@ export const Layout = ({ children, title }) => {
           <i style={{ color: "green" }}>
             <PersonIcon />
             {firstRound
-              ? dataRoom.jugador2?.fullName ||
-                dataRoom.jugador2?.name || <CircularProgress size={"20px"} />
+              ? dataRoom.jugador2?.name ||
+                dataRoom.jugador2?.fullName || <CircularProgress size={"20px"} />
               : (!firstRound && dataRoom.jugador2?.fullName) ||
                 dataRoom.jugador2?.nam}
           </i>

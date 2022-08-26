@@ -1,10 +1,13 @@
 import { initializeApp } from "firebase/app";
 import { getDatabase } from "firebase/database";
+import { getEnvVariables } from "../helpers";
+
+const { API_KEY, AUTH_DOMAIN, DATA_BASE_URL } = getEnvVariables();
 
 const firebaseConfig = {
-  apiKey: "4CK5jSCRxGzytltFSNAGGcujqxjPHJpylKK14LG3",
-  authDomain: "apx-dwf-m6-5b96e.firebaseapp.com",
-  databaseURL: "https://apx-dwf-m6-5b96e-default-rtdb.firebaseio.com",
+  apiKey: API_KEY,
+  authDomain: AUTH_DOMAIN,
+  databaseURL: DATA_BASE_URL,
 };
 
 const app = initializeApp(firebaseConfig);
