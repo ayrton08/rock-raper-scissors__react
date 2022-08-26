@@ -2,12 +2,13 @@ import { initializeApp } from "firebase/app";
 import { getDatabase } from "firebase/database";
 import { getEnvVariables } from "../helpers";
 
-const { API_KEY, AUTH_DOMAIN, DATA_BASE_URL } = getEnvVariables();
+const { VITE_API_KEY, VITE_DATA_BASE_URL, VITE_AUTH_DOMAIN } =
+  getEnvVariables();
 
 const firebaseConfig = {
-  apiKey: API_KEY,
-  authDomain: AUTH_DOMAIN,
-  databaseURL: DATA_BASE_URL,
+  apiKey: VITE_API_KEY,
+  authDomain: VITE_AUTH_DOMAIN,
+  databaseURL: VITE_DATA_BASE_URL,
 };
 
 const app = initializeApp(firebaseConfig);
