@@ -16,8 +16,8 @@ export const Result = () => {
 
   useEffect(() => {
     const result = getWinner(
-      dataRoom.jugador1.choise,
-      dataRoom.jugador2.choise
+      dataRoom.jugador1?.choise,
+      dataRoom.jugador2?.choise
     );
     if (!isWaiting && result) {
       console.log("resultado", result);
@@ -27,8 +27,8 @@ export const Result = () => {
 
   useEffect(() => {
     const result = getWinner(
-      dataRoom.jugador1.choise,
-      dataRoom.jugador2.choise
+      dataRoom.jugador1?.choise,
+      dataRoom.jugador2?.choise
     );
     setHistoryGame();
   }, [resultGame]);
@@ -40,7 +40,7 @@ export const Result = () => {
   };
 
   useEffect(() => {
-    if (dataRoom.jugador1.choise && dataRoom.jugador2.choise) {
+    if (dataRoom.jugador1?.choise && dataRoom.jugador2?.choise) {
       setStatus(false);
       setIsWaiting(false);
       setIsPlaying(true);
@@ -85,11 +85,11 @@ export const Result = () => {
       >
         {player === 1 ? (
           <h3 style={{ fontSize: "25px" }}>
-            Waiting {dataRoom.jugador2.fullName} play...
+            Waiting {dataRoom.jugador2?.fullName} play...
           </h3>
         ) : (
           <h3 style={{ fontSize: "25px" }}>
-            Waiting {dataRoom.jugador1.fullName} play...
+            Waiting {dataRoom.jugador1?.fullName} play...
           </h3>
         )}
         <CircularProgress color="success" />

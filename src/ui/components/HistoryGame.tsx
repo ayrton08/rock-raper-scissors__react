@@ -51,7 +51,7 @@ export const HistoryGame = ({ result }) => {
       >
         <h3>{result}</h3>
         <Grid>
-          <span>{dataRoom.jugador1.fullName}</span> ={"  "}
+          <span>{dataRoom.jugador1.name}</span> ={"  "}
           <strong
             style={{
               fontSize: "40px",
@@ -63,7 +63,7 @@ export const HistoryGame = ({ result }) => {
           </strong>
         </Grid>
         <Grid>
-          <span>{dataRoom.jugador2.fullName}</span> ={" "}
+          <span>{dataRoom.jugador2.name}</span> ={" "}
           <strong
             style={{
               fontSize: "40px",

@@ -11,6 +11,8 @@ export const gameSlice = createSlice({
     dataRoom: {},
     myPlay: null,
     resultGame: null,
+    errorMessage: null,
+    firstRound: true,
   },
   reducers: {
     setPlayerOn: (state, action) => {
@@ -38,6 +40,13 @@ export const gameSlice = createSlice({
     cleanPlay: (state) => {
       state.myPlay = null;
       state.resultGame = null;
+      state.errorMessage = null;
+    },
+    setErrorMessage: (state, { payload }) => {
+      state.errorMessage = payload;
+    },
+    setFirstRound: (state, { payload }) => {
+      state.firstRound = payload;
     },
   },
 });
@@ -51,4 +60,6 @@ export const {
   setMyPlay,
   setResultGame,
   cleanPlay,
+  setErrorMessage,
+  setFirstRound
 } = gameSlice.actions;

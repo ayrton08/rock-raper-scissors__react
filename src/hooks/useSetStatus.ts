@@ -4,8 +4,15 @@ import { setResultGame } from "../store/game/gameSlice";
 import { setHistory, setStatusPlayer } from "../store/game/thunks";
 
 export const useSetStatus = () => {
-  const { roomId, player, rtdbRoomId, dataRoom, myPlay, resultGame } =
-    useSelector((state) => state.game);
+  const {
+    roomId,
+    player,
+    rtdbRoomId,
+    dataRoom,
+    myPlay,
+    resultGame,
+    firstRound,
+  } = useSelector((state) => state.game);
   const { fullnamePlayerOne, fullnamePlayerTwo } = useSelector(
     (state) => state.players
   );
@@ -91,6 +98,7 @@ export const useSetStatus = () => {
     myPlay,
     resultGame,
     roomId,
+    firstRound,
 
     setStatus,
     setWhoWin,

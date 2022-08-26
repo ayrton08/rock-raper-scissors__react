@@ -7,18 +7,12 @@ export const WaitRoom = () => {
   const { dataRoom, setStatus, player, myPlay } = useSetStatus();
   const [isWaiting, setIsWaiting] = useState(false);
 
-  // useEffect(() => {
-  //   if (myPlay) {
-  //     setStatus(false);
-  //   }
-  // }, [myPlay]);
-
   const setOnline = () => {
     setIsWaiting(true);
     setStatus(true);
   };
 
-  return dataRoom.jugador1.online & dataRoom.jugador2.online ? (
+  return dataRoom.jugador1?.online && dataRoom.jugador2?.online ? (
     <ChoosePlay />
   ) : isWaiting ? (
     <Grid
@@ -33,11 +27,11 @@ export const WaitRoom = () => {
     >
       {player === 1 ? (
         <h3 style={{ fontSize: "25px" }}>
-          Waiting {dataRoom.jugador2.fullName}... press play
+          Waiting {dataRoom.jugador2?.name || dataRoom.jugador2?.fullName}... press play
         </h3>
       ) : (
         <h3 style={{ fontSize: "25px" }}>
-          Waiting {dataRoom.jugador1.fullName}... press play
+          Waiting {dataRoom.jugador1?.fullName}... press play
         </h3>
       )}
       <CircularProgress color="success" />

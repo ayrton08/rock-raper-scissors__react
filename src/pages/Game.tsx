@@ -5,15 +5,28 @@ import { WaitRoom } from "../components/WaitRoom";
 import { useListenRoom } from "../hooks/useListenRoom";
 import { useSetStatus } from "../hooks/useSetStatus";
 import { Layout } from "../layout/Layaout";
+import { setPlayerOn } from "../store/game/gameSlice";
 
 export const Game = () => {
   const { setStatus } = useSetStatus();
-  const { roomId, player, rtdbRoomId, dataRoom } = useSelector(
+  const dispatch = useDispatch();
+  const { roomId, player, rtdbRoomId, dataRoom, firstRound } = useSelector(
     (state) => state.game
   );
 
+  const { fullnamePlayerTwo } = useSelector((state) => state.players);
+
+  // useEffect(() => {
+  //   setStatus(false);
+  // }, [roomId]);
+
   useEffect(() => {
-    setStatus(false);
+    if (firstRound) {
+      setStatus(true);
+    }
+    // if (!!firstRound) {
+    //   setStatus(false);
+    // }
   }, []);
 
   useEffect(() => {
@@ -22,14 +35,18 @@ export const Game = () => {
     }
   }, [dataRoom]);
 
+  useEffect(() => {
+    if (fullnamePlayerTwo === dataRoom.jugador1?.fullName) {
+      dispatch(setPlayerOn(1));
+    }
+  }, [dataRoom]);
+
   useListenRoom();
 
   return (
     <>
       <Layout title="Rock, paper or scissors">
-        {dataRoom.jugador1?.status & dataRoom.jugador2?.status ? (
-          <WaitRoom />
-        ) : (
+        {!dataRoom.jugador1?.status || !dataRoom.jugador2?.status && firstRound? (
           <Grid
             container
             justifyContent="center"
@@ -42,6 +59,8 @@ export const Game = () => {
               Share the code: {roomId} with your opponent
             </h2>
           </Grid>
+        ) : (
+          <WaitRoom />
         )}
       </Layout>
     </>

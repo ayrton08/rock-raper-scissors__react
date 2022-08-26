@@ -72,7 +72,7 @@ export const NewGame = () => {
         value={fullname}
         onChange={onInputChange}
         error={error}
-        // autoComplete="off"
+        autoComplete="off"
       />
       <Grid container display={!!error ? "" : "none"} sx={{ mt: 1, mb: 1 }}>
         <Grid item xs={12}>

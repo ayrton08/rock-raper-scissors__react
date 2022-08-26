@@ -1,5 +1,10 @@
 import requestApi from "../../api/requestApi";
-import { setRoomId, setUserId, setRtdbRoomId } from "./gameSlice";
+import {
+  setRoomId,
+  setUserId,
+  setRtdbRoomId,
+  setErrorMessage,
+} from "./gameSlice";
 
 type SetStatus = {
   player: string;
@@ -52,9 +57,14 @@ export const setStatusPlayer = ({
 
 export const getRtdbRoomId = (roomId: string) => {
   return async (dispatch: Function) => {
-    const { data } = await requestApi.post("/rtdbRoomId", { roomId });
+    try {
+      const { data } = await requestApi.post("/rtdbRoomId", { roomId });
 
-    dispatch(setRtdbRoomId(data.rtdbRoomId));
+      dispatch(setRtdbRoomId(data.rtdbRoomId));
+    } catch (error) {
+      const response = error.response.data;
+      dispatch(setErrorMessage(`Error: ${response}`));
+    }
   };
 };
 

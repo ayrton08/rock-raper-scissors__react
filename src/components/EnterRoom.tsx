@@ -4,8 +4,8 @@ import ArrowForwardTwoToneIcon from "@mui/icons-material/ArrowForwardTwoTone";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "../hooks/useForm";
-import { setRoomId } from "../store/game/gameSlice";
-import { getRtdbRoomId, setStatusPlayer } from "../store/game/thunks";
+import { setFirstRound, setPlayerOn, setRoomId } from "../store/game/gameSlice";
+import { getRtdbRoomId, setPlay, setStatusPlayer } from "../store/game/thunks";
 import { setNamePlayerTwo } from "../store/player/playerSlice";
 import { useNavigate } from "react-router-dom";
 
@@ -24,9 +24,11 @@ export const EnterRoom = () => {
   const dispatch = useDispatch();
   const [error, setError] = useState(false);
 
-  const { playerOn, player, userId, roomId, rtdbRoomId } = useSelector(
+  const { roomId, rtdbRoomId, errorMessage } = useSelector(
     (state) => state.game
   );
+
+  dispatch(setFirstRound(false));
 
   const onIntoRoom = () => {
     if (code.length <= 0) {
@@ -74,11 +76,23 @@ export const EnterRoom = () => {
           width: "200px",
         }}
       />
+
+      <Grid
+        container
+        display={errorMessage ? "" : "none"}
+        sx={{ mt: 1, mb: 1 }}
+      >
+        <Grid item xs={12}>
+          <Alert severity="error">{errorMessage}</Alert>
+        </Grid>
+      </Grid>
+
       <Grid container display={!!error ? "" : "none"} sx={{ mt: 1, mb: 1 }}>
         <Grid item xs={12}>
           <Alert severity="error">Insert a code room</Alert>
         </Grid>
       </Grid>
+
       <Button
         onClick={onIntoRoom}
         sx={{ fontSize: "20px", border: "solid 1px" }}
