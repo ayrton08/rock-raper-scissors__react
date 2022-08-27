@@ -7,10 +7,10 @@ import {
 } from "./gameSlice";
 
 interface SetStatus {
-  player: string;
+  player: number;
   online: boolean;
-  name: string;
-  rtdbRoomId: string;
+  name: string | null;
+  rtdbRoomId: string | null;
 }
 
 interface SetPlay {
@@ -20,8 +20,8 @@ interface SetPlay {
   player: number;
 }
 interface SetHistory {
-  rtdbRoomId: string;
-  player: number;
+  rtdbRoomId: string | null;
+  player: string | number;
   victory: string;
 }
 interface CleanPlay {
