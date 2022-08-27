@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface Game {
   playerOn: boolean;
-  player: number | null;
+  player: any;
   userId: string | null;
   roomId: string | null;
   rtdbRoomId: string | null;

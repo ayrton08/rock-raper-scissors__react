@@ -26,8 +26,8 @@ interface SetHistory {
 }
 interface CleanPlay {
   name: string;
-  player: number;
-  rtdbRoomId: string;
+  player: string;
+  rtdbRoomId: string | null;
 }
 
 export const signIn = (player: string) => {
@@ -108,7 +108,7 @@ export const setHistory = ({ rtdbRoomId, player, victory }: SetHistory) => {
 };
 
 export const cleanPlayRoom = ({ name, player, rtdbRoomId }: CleanPlay) => {
-  return async (dispatch: Function) => {
+  return async (dispatch: any) => {
     const { data } = await requestApi.post("/cleanPlay", {
       name,
       status: true,
