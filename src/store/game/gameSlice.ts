@@ -4,7 +4,7 @@ interface Game {
   playerOn: boolean;
   player: number | null;
   userId: number | null;
-  roomId: number | null;
+  roomId: string | null;
   rtdbRoomId: number | null;
   dataRoom: any;
   myPlay: string | null;
@@ -37,7 +37,7 @@ export const gameSlice = createSlice({
     setUserId: (state, { payload }: PayloadAction<number>) => {
       state.userId = payload;
     },
-    setRoomId: (state, { payload }: PayloadAction<number>) => {
+    setRoomId: (state, { payload }: PayloadAction<string>) => {
       state.roomId = payload;
     },
     setRtdbRoomId: (state, { payload }: PayloadAction<number>) => {
