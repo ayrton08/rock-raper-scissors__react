@@ -87,15 +87,15 @@ export const ChoosePlay = () => {
             colors={["#004777", "#F7B801", "#A30000", "#A30000"]}
             colorsTime={[7, 5, 2, 0]}
             strokeWidth={20}
-            onComplete={() => {
-              if (!myPlay) {
-                return Swal.fire(
-                  "Time Over",
-                  "Try again, don't forget to play",
-                  "error"
-                );
-              }
-            }}
+            // onComplete={() => {
+            //   if (!myPlay) {
+            //     return Swal.fire(
+            //       "Time Over",
+            //       "Try again, don't forget to play",
+            //       "error"
+            //     );
+            //   }
+            // }}
           >
             {({ remainingTime }) => remainingTime}
           </CountdownCircleTimer>

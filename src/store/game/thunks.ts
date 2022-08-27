@@ -16,8 +16,8 @@ interface SetStatus {
 interface SetPlay {
   name: string;
   choise: string;
-  rtdbRoomId: string;
-  player: number;
+  rtdbRoomId: string | null;
+  player: number | null;
 }
 interface SetHistory {
   rtdbRoomId: string | null;
@@ -45,7 +45,7 @@ export const askNewRoom = (userId: string) => {
   };
 };
 
-export const accessToRoom = (roomId: string, userId: string) => {
+export const accessToRoom = (roomId: string, userId: string | null) => {
   return async (dispatch: any) => {
     const { data } = await requestApi.get(`/room/${roomId}/?userId=${userId}`);
 

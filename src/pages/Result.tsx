@@ -33,7 +33,7 @@ export const Result = () => {
     setHistoryGame();
   }, [resultGame]);
 
-  const play = {
+  const play: any = {
     paper: <NoteIcon sx={{ fontSize: 150 }} />,
     scissor: <ContentCutIcon sx={{ fontSize: 150 }} />,
     rock: <Brightness1Icon sx={{ fontSize: 150 }} />,

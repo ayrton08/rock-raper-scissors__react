@@ -6,11 +6,12 @@ import { accessToRoom, askNewRoom, getRtdbRoomId } from "../store/game/thunks";
 import { useEffect, useState } from "react";
 import { EnterRoom } from "../components/EnterRoom";
 import { NewGame } from "../components/NewGame";
+import { useAppDispatch, useAppSelector } from "../hooks/useReduxTypes";
 
 export const Welcome = () => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const { playerOn, player, userId, roomId } = useSelector(
+  const dispatch = useAppDispatch();
+  const { playerOn, player, userId, roomId } = useAppSelector(
     (state) => state.game
   );
   const [efect, setEfect] = useState("");

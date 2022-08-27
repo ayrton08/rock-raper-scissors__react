@@ -4,7 +4,7 @@ import Divider from "@mui/material/Divider";
 import { useBeforeunload } from "react-beforeunload";
 import PersonIcon from "@mui/icons-material/Person";
 
-export const Layout = ({ children, title }) => {
+export const Layout = ({ children, title }: any) => {
   const { dataRoom, resultGame, roomId, firstRound } = useSetStatus();
 
   useBeforeunload(() => console.log("te vas"));
