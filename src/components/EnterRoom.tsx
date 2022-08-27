@@ -9,6 +9,9 @@ import { getRtdbRoomId, setPlay, setStatusPlayer } from "../store/game/thunks";
 import { setNamePlayerTwo } from "../store/player/playerSlice";
 import { useNavigate } from "react-router-dom";
 
+import { useAppSelector, useAppDispatch } from "../hooks/useReduxTypes";
+
+
 const initialState: { code: string } = {
   code: "",
 };
@@ -21,7 +24,7 @@ export const EnterRoom = () => {
   const navigate = useNavigate();
   const { code, onInputChange } = useForm(initialState);
   const { fullname, onInputChange: inputName } = useForm(initialStateName);
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const [error, setError] = useState(false);
 
   const { roomId, rtdbRoomId, errorMessage } = useSelector(

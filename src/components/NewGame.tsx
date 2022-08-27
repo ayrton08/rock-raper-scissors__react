@@ -13,17 +13,20 @@ import { signIn } from "../store/game/thunks";
 import { useEffect, useState } from "react";
 import { useSetStatus } from "../hooks/useSetStatus";
 
+import { useAppSelector, useAppDispatch } from "../hooks/useReduxTypes";
+
+
 const initialState: { fullname: string } = {
   fullname: "",
 };
 
 export const NewGame = () => {
+  const dispatch = useAppDispatch();
   const { roomId } = useSetStatus();
   const { fullname, onInputChange } = useForm(initialState);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
 
-  const dispatch = useDispatch();
 
   const startGame = () => {
     if (fullname.length <= 0) {

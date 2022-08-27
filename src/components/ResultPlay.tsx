@@ -7,9 +7,11 @@ import { setFirstRound } from "../store/game/gameSlice";
 import { cleanPlayRoom } from "../store/game/thunks";
 import { HistoryGame } from "../ui/components/HistoryGame";
 
+import { useAppSelector, useAppDispatch } from "../hooks/useReduxTypes";
+
 export const ResultPlay = () => {
   const { resultGame, roomId } = useSetStatus();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   dispatch(setFirstRound(false));
 

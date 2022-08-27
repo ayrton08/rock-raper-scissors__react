@@ -1,5 +1,5 @@
 import { Button, CircularProgress, Grid } from "@mui/material";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useSetStatus } from "../hooks/useSetStatus";
 import { ChoosePlay } from "./ChoosePlay";
 
@@ -27,7 +27,8 @@ export const WaitRoom = () => {
     >
       {player === 1 ? (
         <h3 style={{ fontSize: "25px" }}>
-          Waiting {dataRoom.jugador2?.name || dataRoom.jugador2?.fullName}... press play
+          Waiting {dataRoom.jugador2?.name || dataRoom.jugador2?.fullName}...
+          press play
         </h3>
       ) : (
         <h3 style={{ fontSize: "25px" }}>

@@ -12,12 +12,14 @@ import { setMyPlay } from "../store/game/gameSlice";
 import Divider from "@mui/material/Divider";
 import Swal from "sweetalert2";
 
+import { useAppSelector, useAppDispatch } from "../hooks/useReduxTypes";
+
 export const ChoosePlay = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   const { dataRoom, player, rtdbRoomId, myPlay } = useSetStatus();
   const [name, setName] = useState("");
   const [gamble, setGamble] = useState("");
-  const navigate = useNavigate();
   const [efectRock, setEfectRock] = useState("");
   const [efectPaper, setEfectPaper] = useState("");
   const [efectSccisor, setEfectSccisor] = useState("");
