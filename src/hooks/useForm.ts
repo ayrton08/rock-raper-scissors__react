@@ -1,8 +1,8 @@
 import { useState, useEffect, useMemo } from "react";
 
-export const useForm = (initialForm = {}, formValidations = {}) => {
+export const useForm = (initialForm = {}, formValidations: any = {}) => {
   const [formState, setFormState] = useState<any>(initialForm);
-  const [formValidation, setFormValidation] = useState([]);
+  const [formValidation, setFormValidation] = useState<any>([]);
 
   useEffect(() => {
     createValidator();
@@ -32,7 +32,7 @@ export const useForm = (initialForm = {}, formValidations = {}) => {
   };
 
   const createValidator = () => {
-    const formCheckedValues = {};
+    const formCheckedValues: any = {};
     for (const formField of Object.keys(formValidations)) {
       const [fn, errorMessage] = formValidations[formField];
 

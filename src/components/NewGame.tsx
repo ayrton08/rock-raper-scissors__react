@@ -7,7 +7,6 @@ import {
 } from "@mui/material";
 import ArrowForwardTwoToneIcon from "@mui/icons-material/ArrowForwardTwoTone";
 import { useForm } from "../hooks/useForm";
-import { useDispatch } from "react-redux";
 import { setNamePlayerOne } from "../store/player/playerSlice";
 import { signIn } from "../store/game/thunks";
 import { useEffect, useState } from "react";
