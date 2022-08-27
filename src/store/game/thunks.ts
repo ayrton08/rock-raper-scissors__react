@@ -14,7 +14,7 @@ type SetStatus = {
 };
 
 export const signIn = (player: string) => {
-  return async (dispatch: Function) => {
+  return async (dispatch) => {
     const { data } = await requestApi.post("/signup", { name: player });
     dispatch(setUserId(data.id));
   };

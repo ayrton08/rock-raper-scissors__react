@@ -9,8 +9,7 @@ import { getRtdbRoomId, setPlay, setStatusPlayer } from "../store/game/thunks";
 import { setNamePlayerTwo } from "../store/player/playerSlice";
 import { useNavigate } from "react-router-dom";
 
-import { useAppSelector, useAppDispatch } from "../hooks/useReduxTypes";
-
+import { useAppDispatch } from "../hooks/useReduxTypes";
 
 const initialState: { code: string } = {
   code: "",
