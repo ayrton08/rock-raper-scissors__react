@@ -1,13 +1,13 @@
-import { getDatabase, ref, onValue, update } from "firebase/database";
+import { ref, onValue } from "firebase/database";
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { rtdb } from "../firebase/rtdb";
 import { setDataRoom } from "../store/game/gameSlice";
+import { useAppSelector, useAppDispatch } from "./useReduxTypes";
 
 export const useListenRoom = () => {
-  const { rtdbRoomId } = useSelector((state) => state.game);
+  const { rtdbRoomId } = useAppSelector((state) => state.game);
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     const chatroomsRef = ref(rtdb, "/rooms/" + rtdbRoomId);

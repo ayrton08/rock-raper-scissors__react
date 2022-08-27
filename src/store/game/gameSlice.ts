@@ -3,9 +3,9 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 interface Game {
   playerOn: boolean;
   player: number | null;
-  userId: number | null;
+  userId: string | null;
   roomId: string | null;
-  rtdbRoomId: number | null;
+  rtdbRoomId: string | null;
   dataRoom: any;
   myPlay: string | null;
   resultGame: string | null;
@@ -34,13 +34,13 @@ export const gameSlice = createSlice({
       state.playerOn = true;
       state.player = payload;
     },
-    setUserId: (state, { payload }: PayloadAction<number>) => {
+    setUserId: (state, { payload }: PayloadAction<string>) => {
       state.userId = payload;
     },
     setRoomId: (state, { payload }: PayloadAction<string>) => {
       state.roomId = payload;
     },
-    setRtdbRoomId: (state, { payload }: PayloadAction<number>) => {
+    setRtdbRoomId: (state, { payload }: PayloadAction<string>) => {
       state.rtdbRoomId = payload;
     },
     setDataRoom: (state, { payload }: PayloadAction<any>) => {

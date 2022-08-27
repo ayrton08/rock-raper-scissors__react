@@ -6,22 +6,39 @@ import {
   setErrorMessage,
 } from "./gameSlice";
 
-type SetStatus = {
+interface SetStatus {
   player: string;
   online: boolean;
   name: string;
   rtdbRoomId: string;
-};
+}
+
+interface SetPlay {
+  name: string;
+  choise: string;
+  rtdbRoomId: string;
+  player: number;
+}
+interface SetHistory {
+  rtdbRoomId: string;
+  player: number;
+  victory: string;
+}
+interface CleanPlay {
+  name: string;
+  player: number;
+  rtdbRoomId: string;
+}
 
 export const signIn = (player: string) => {
-  return async (dispatch) => {
+  return async (dispatch: any) => {
     const { data } = await requestApi.post("/signup", { name: player });
     dispatch(setUserId(data.id));
   };
 };
 
 export const askNewRoom = (userId: string) => {
-  return async (dispatch: Function) => {
+  return async (dispatch: any) => {
     const { data } = await requestApi.post("/rooms", { userId });
 
     dispatch(setRoomId(data.id));
@@ -29,7 +46,7 @@ export const askNewRoom = (userId: string) => {
 };
 
 export const accessToRoom = (roomId: string, userId: string) => {
-  return async (dispatch: Function) => {
+  return async (dispatch: any) => {
     const { data } = await requestApi.get(`/room/${roomId}/?userId=${userId}`);
 
     dispatch(setRtdbRoomId(data.rtdbRoomId));
@@ -42,7 +59,7 @@ export const setStatusPlayer = ({
   name,
   rtdbRoomId,
 }: SetStatus) => {
-  return async (dispatch: Function) => {
+  return async (dispatch: any) => {
     if (player) {
       await requestApi.post(`/status`, {
         player,
@@ -56,19 +73,19 @@ export const setStatusPlayer = ({
 };
 
 export const getRtdbRoomId = (roomId: string) => {
-  return async (dispatch: Function) => {
+  return async (dispatch: any) => {
     try {
       const { data } = await requestApi.post("/rtdbRoomId", { roomId });
 
       dispatch(setRtdbRoomId(data.rtdbRoomId));
-    } catch (error) {
+    } catch (error: any) {
       const response = error.response.data;
       dispatch(setErrorMessage(`Error: ${response}`));
     }
   };
 };
 
-export const setPlay = ({ name, choise, rtdbRoomId, player }) => {
+export const setPlay = ({ name, choise, rtdbRoomId, player }: SetPlay) => {
   return async (dispatch: Function) => {
     const { data } = await requestApi.post("/play", {
       name,
@@ -79,7 +96,7 @@ export const setPlay = ({ name, choise, rtdbRoomId, player }) => {
   };
 };
 
-export const setHistory = ({ rtdbRoomId, player, victory }) => {
+export const setHistory = ({ rtdbRoomId, player, victory }: SetHistory) => {
   return async (dispatch: Function) => {
     const { data } = await requestApi.post("/history", {
       rtdbRoomId,
@@ -90,7 +107,7 @@ export const setHistory = ({ rtdbRoomId, player, victory }) => {
   };
 };
 
-export const cleanPlayRoom = ({ name, player, rtdbRoomId }) => {
+export const cleanPlayRoom = ({ name, player, rtdbRoomId }: CleanPlay) => {
   return async (dispatch: Function) => {
     const { data } = await requestApi.post("/cleanPlay", {
       name,

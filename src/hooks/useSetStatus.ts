@@ -1,7 +1,7 @@
-import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setResultGame } from "../store/game/gameSlice";
 import { setHistory, setStatusPlayer } from "../store/game/thunks";
+import { useAppDispatch, useAppSelector } from "./useReduxTypes";
 
 export const useSetStatus = () => {
   const {
@@ -12,12 +12,12 @@ export const useSetStatus = () => {
     myPlay,
     resultGame,
     firstRound,
-  } = useSelector((state) => state.game);
-  const { fullnamePlayerOne, fullnamePlayerTwo } = useSelector(
+  } = useAppSelector((state) => state.game);
+  const { fullnamePlayerOne, fullnamePlayerTwo } = useAppSelector(
     (state) => state.players
   );
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const setStatus = (online: boolean) => {
     if (player === 1) {
