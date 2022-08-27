@@ -1,19 +1,34 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+interface Game {
+  playerOn: boolean;
+  player: number | null;
+  userId: number | null;
+  roomId: number | null;
+  rtdbRoomId: number | null;
+  dataRoom: any;
+  myPlay: string | null;
+  resultGame: string | null;
+  errorMessage: string | null;
+  firstRound: boolean;
+}
+
+const initialState: Game = {
+  playerOn: false,
+  player: null,
+  userId: null,
+  roomId: null,
+  rtdbRoomId: null,
+  dataRoom: {},
+  myPlay: null,
+  resultGame: null,
+  errorMessage: null,
+  firstRound: true,
+};
+
 export const gameSlice = createSlice({
   name: "game",
-  initialState: {
-    playerOn: false,
-    player: null,
-    userId: null,
-    roomId: null,
-    rtdbRoomId: null,
-    dataRoom: {},
-    myPlay: null,
-    resultGame: null,
-    errorMessage: null,
-    firstRound: true,
-  },
+  initialState,
   reducers: {
     setPlayerOn: (state, action) => {
       state.playerOn = true;
@@ -61,5 +76,5 @@ export const {
   setResultGame,
   cleanPlay,
   setErrorMessage,
-  setFirstRound
+  setFirstRound,
 } = gameSlice.actions;
