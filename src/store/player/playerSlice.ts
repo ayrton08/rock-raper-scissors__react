@@ -1,17 +1,24 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+
+interface Player {
+  fullnamePlayerOne: string | null;
+  fullnamePlayerTwo: string | null;
+}
+
+const initialState: Player = {
+  fullnamePlayerOne: null,
+  fullnamePlayerTwo: null,
+};
 
 export const playerSlice = createSlice({
   name: "player",
-  initialState: {
-    fullnamePlayerOne: null,
-    fullnamePlayerTwo: null,
-  },
+  initialState,
   reducers: {
-    setNamePlayerOne: (state, action) => {
-      state.fullnamePlayerOne = action.payload;
+    setNamePlayerOne: (state, { payload }: PayloadAction<string>) => {
+      state.fullnamePlayerOne = payload;
     },
-    setNamePlayerTwo: (state, action) => {
-      state.fullnamePlayerTwo = action.payload;
+    setNamePlayerTwo: (state, { payload }: PayloadAction<string>) => {
+      state.fullnamePlayerTwo = payload;
     },
   },
 });

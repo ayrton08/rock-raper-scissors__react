@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface Game {
   playerOn: boolean;
@@ -30,26 +30,26 @@ export const gameSlice = createSlice({
   name: "game",
   initialState,
   reducers: {
-    setPlayerOn: (state, action) => {
+    setPlayerOn: (state, { payload }: PayloadAction<number>) => {
       state.playerOn = true;
-      state.player = action.payload;
+      state.player = payload;
     },
-    setUserId: (state, { payload }) => {
+    setUserId: (state, { payload }: PayloadAction<number>) => {
       state.userId = payload;
     },
-    setRoomId: (state, { payload }) => {
+    setRoomId: (state, { payload }: PayloadAction<number>) => {
       state.roomId = payload;
     },
-    setRtdbRoomId: (state, { payload }) => {
+    setRtdbRoomId: (state, { payload }: PayloadAction<number>) => {
       state.rtdbRoomId = payload;
     },
-    setDataRoom: (state, { payload }) => {
+    setDataRoom: (state, { payload }: PayloadAction<any>) => {
       state.dataRoom = payload;
     },
-    setMyPlay: (state, { payload }) => {
+    setMyPlay: (state, { payload }: PayloadAction<string>) => {
       state.myPlay = payload;
     },
-    setResultGame: (state, { payload }) => {
+    setResultGame: (state, { payload }: PayloadAction<string>) => {
       state.resultGame = payload;
     },
     cleanPlay: (state) => {
@@ -57,10 +57,10 @@ export const gameSlice = createSlice({
       state.resultGame = null;
       state.errorMessage = null;
     },
-    setErrorMessage: (state, { payload }) => {
+    setErrorMessage: (state, { payload }: PayloadAction<string>) => {
       state.errorMessage = payload;
     },
-    setFirstRound: (state, { payload }) => {
+    setFirstRound: (state, { payload }: PayloadAction<boolean>) => {
       state.firstRound = payload;
     },
   },
