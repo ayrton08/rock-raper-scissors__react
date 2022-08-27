@@ -8,4 +8,3 @@ export const getEnvVariables = () => {
   };
 };
 
-console.log(getEnvVariables());
