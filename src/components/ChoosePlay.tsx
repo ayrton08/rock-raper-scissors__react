@@ -5,7 +5,7 @@ import NoteIcon from "@mui/icons-material/Note";
 import ContentCutIcon from "@mui/icons-material/ContentCut";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { useSetStatus } from "../hooks/useSetStatus";
+import { useStore } from "../hooks/useStore";
 import { setPlay } from "../store/game/thunks";
 import { useEffect, useState } from "react";
 import { setMyPlay } from "../store/game/gameSlice";
@@ -17,7 +17,7 @@ import { useAppSelector, useAppDispatch } from "../hooks/useReduxTypes";
 export const ChoosePlay = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const { dataRoom, player, rtdbRoomId, myPlay } = useSetStatus();
+  const { dataRoom, player, rtdbRoomId, myPlay } = useStore();
   const [name, setName] = useState("");
   const [gamble, setGamble] = useState("");
   const [efectRock, setEfectRock] = useState("");

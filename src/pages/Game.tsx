@@ -2,13 +2,13 @@ import { Grid } from "@mui/material";
 import { useEffect } from "react";
 import { WaitRoom } from "../components/WaitRoom";
 import { useListenRoom } from "../hooks/useListenRoom";
-import { useSetStatus } from "../hooks/useSetStatus";
+import { useStore } from "../hooks/useStore";
 import { Layout } from "../layout/Layaout";
 import { setPlayerOn } from "../store/game/gameSlice";
 import { useAppDispatch, useAppSelector } from "../hooks/useReduxTypes";
 
 export const Game = () => {
-  const { setStatus } = useSetStatus();
+  const { setStatus } = useStore();
   const dispatch = useAppDispatch();
   const { roomId, dataRoom, firstRound } = useAppSelector(
     (state) => state.game

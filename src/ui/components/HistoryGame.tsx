@@ -2,13 +2,13 @@ import { Button, Grid } from "@mui/material";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../hooks/useReduxTypes";
-import { useSetStatus } from "../../hooks/useSetStatus";
+import { useStore } from "../../hooks/useStore";
 import { cleanPlay } from "../../store/game/gameSlice";
 import { cleanPlayRoom } from "../../store/game/thunks";
 
 export const HistoryGame = ({ result }: any) => {
   const dispatch = useAppDispatch();
-  const { dataRoom, player, rtdbRoomId } = useSetStatus();
+  const { dataRoom, player, rtdbRoomId } = useStore();
   const navigate = useNavigate();
 
   const playerAsString = player.toString();

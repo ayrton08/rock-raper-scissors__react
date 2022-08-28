@@ -1,10 +1,10 @@
 import { Button, CircularProgress, Grid } from "@mui/material";
 import { useState } from "react";
-import { useSetStatus } from "../hooks/useSetStatus";
+import { useStore } from "../hooks/useStore";
 import { ChoosePlay } from "./ChoosePlay";
 
 export const WaitRoom = () => {
-  const { dataRoom, setStatus, player, myPlay } = useSetStatus();
+  const { dataRoom, setStatus, player, myPlay } = useStore();
   const [isWaiting, setIsWaiting] = useState(false);
 
   const setOnline = () => {

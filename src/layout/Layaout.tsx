@@ -1,13 +1,12 @@
 import { CircularProgress, Grid, Typography } from "@mui/material";
-import { useSetStatus } from "../hooks/useSetStatus";
+import { useStore } from "../hooks/useStore";
 import Divider from "@mui/material/Divider";
 import { useBeforeunload } from "react-beforeunload";
 import PersonIcon from "@mui/icons-material/Person";
 
 export const Layout = ({ children, title }: any) => {
-  const { dataRoom, resultGame, roomId, firstRound } = useSetStatus();
+  const { dataRoom, resultGame, roomId, firstRound } = useStore();
 
-  useBeforeunload(() => console.log("te vas"));
 
   return (
     <Grid

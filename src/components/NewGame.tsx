@@ -10,7 +10,7 @@ import { useForm } from "../hooks/useForm";
 import { setNamePlayerOne } from "../store/player/playerSlice";
 import { signIn } from "../store/game/thunks";
 import { useEffect, useState } from "react";
-import { useSetStatus } from "../hooks/useSetStatus";
+import { useStore } from "../hooks/useStore";
 
 import { useAppDispatch } from "../hooks/useReduxTypes";
 
@@ -20,7 +20,7 @@ const initialState: { fullname: string } = {
 
 export const NewGame = () => {
   const dispatch = useAppDispatch();
-  const { roomId } = useSetStatus();
+  const { roomId } = useStore();
   const { fullname, onInputChange } = useForm(initialState);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);

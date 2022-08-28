@@ -3,14 +3,14 @@ import { ResultPlay } from "../components/ResultPlay";
 import Brightness1Icon from "@mui/icons-material/Brightness1";
 import NoteIcon from "@mui/icons-material/Note";
 import ContentCutIcon from "@mui/icons-material/ContentCut";
-import { useSetStatus } from "../hooks/useSetStatus";
+import { useStore } from "../hooks/useStore";
 import { useEffect, useState } from "react";
 import { getWinner } from "../helpers";
 import { Layout } from "../layout/Layaout";
 
 export const Result = () => {
   const { dataRoom, setStatus, resultGame, setWhoWin, setHistoryGame, player } =
-    useSetStatus();
+    useStore();
   const [isPlaying, setIsPlaying] = useState(false);
   const [isWaiting, setIsWaiting] = useState(true);
 
@@ -20,7 +20,6 @@ export const Result = () => {
       dataRoom.jugador2?.choise
     );
     if (!isWaiting && result) {
-      console.log("resultado", result);
       setWhoWin(result);
     }
   }, [isPlaying]);

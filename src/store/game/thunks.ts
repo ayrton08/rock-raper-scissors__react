@@ -103,7 +103,6 @@ export const setHistory = ({ rtdbRoomId, player, victory }: SetHistory) => {
       player,
       victory,
     });
-    console.log(data);
   };
 };
 

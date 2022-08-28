@@ -1,9 +1,8 @@
-import { useDispatch, useSelector } from "react-redux";
 import { setResultGame } from "../store/game/gameSlice";
 import { setHistory, setStatusPlayer } from "../store/game/thunks";
 import { useAppDispatch, useAppSelector } from "./useReduxTypes";
 
-export const useSetStatus = () => {
+export const useStore = () => {
   const {
     roomId,
     player,
@@ -12,6 +11,9 @@ export const useSetStatus = () => {
     myPlay,
     resultGame,
     firstRound,
+    errorMessage,
+    userId,
+    playerOn,
   } = useAppSelector((state) => state.game);
   const { fullnamePlayerOne, fullnamePlayerTwo } = useAppSelector(
     (state) => state.players
@@ -92,6 +94,7 @@ export const useSetStatus = () => {
   };
 
   return {
+    // Properties:
     player,
     rtdbRoomId,
     dataRoom,
@@ -100,6 +103,8 @@ export const useSetStatus = () => {
     roomId,
     firstRound,
 
+
+    // Functions:
     setStatus,
     setWhoWin,
     setHistoryGame,
