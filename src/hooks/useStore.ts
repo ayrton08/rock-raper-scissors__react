@@ -15,6 +15,7 @@ export const useStore = () => {
     userId,
     playerOn,
   } = useAppSelector((state) => state.game);
+
   const { fullnamePlayerOne, fullnamePlayerTwo } = useAppSelector(
     (state) => state.players
   );
@@ -95,6 +96,8 @@ export const useStore = () => {
 
   return {
     // Properties:
+    fullnamePlayerOne,
+    fullnamePlayerTwo,
     player,
     rtdbRoomId,
     dataRoom,
@@ -102,7 +105,9 @@ export const useStore = () => {
     resultGame,
     roomId,
     firstRound,
-
+    errorMessage,
+    userId,
+    playerOn,
 
     // Functions:
     setStatus,

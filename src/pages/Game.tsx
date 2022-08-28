@@ -5,16 +5,12 @@ import { useListenRoom } from "../hooks/useListenRoom";
 import { useStore } from "../hooks/useStore";
 import { Layout } from "../layout/Layaout";
 import { setPlayerOn } from "../store/game/gameSlice";
-import { useAppDispatch, useAppSelector } from "../hooks/useReduxTypes";
+import { useAppDispatch } from "../hooks/useReduxTypes";
 
 export const Game = () => {
-  const { setStatus } = useStore();
   const dispatch = useAppDispatch();
-  const { roomId, dataRoom, firstRound } = useAppSelector(
-    (state) => state.game
-  );
-
-  const { fullnamePlayerTwo } = useAppSelector((state) => state.players);
+  const { setStatus, roomId, dataRoom, firstRound, fullnamePlayerTwo } =
+    useStore();
 
   useEffect(() => {
     if (firstRound) {

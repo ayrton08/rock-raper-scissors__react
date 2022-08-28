@@ -4,7 +4,7 @@ import { useStore } from "../hooks/useStore";
 import { ChoosePlay } from "./ChoosePlay";
 
 export const WaitRoom = () => {
-  const { dataRoom, setStatus, player, myPlay } = useStore();
+  const { dataRoom, setStatus, player } = useStore();
   const [isWaiting, setIsWaiting] = useState(false);
 
   const setOnline = () => {

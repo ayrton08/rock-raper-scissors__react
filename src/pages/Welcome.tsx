@@ -1,19 +1,18 @@
 import { Button, Grid } from "@mui/material";
-import { useDispatch, useSelector } from "react-redux";
 import { setPlayerOn } from "../store/game/gameSlice";
 import { useNavigate } from "react-router-dom";
-import { accessToRoom, askNewRoom, getRtdbRoomId } from "../store/game/thunks";
+import { accessToRoom, askNewRoom } from "../store/game/thunks";
 import { useEffect, useState } from "react";
 import { EnterRoom } from "../components/EnterRoom";
 import { NewGame } from "../components/NewGame";
-import { useAppDispatch, useAppSelector } from "../hooks/useReduxTypes";
+import { useAppDispatch } from "../hooks/useReduxTypes";
+import { useStore } from "../hooks/useStore";
 
 export const Welcome = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
-  const { playerOn, player, userId, roomId } = useAppSelector(
-    (state) => state.game
-  );
+  const { playerOn, player, userId, roomId } = useStore();
+
   const [efect, setEfect] = useState("");
 
   const newGame = () => {

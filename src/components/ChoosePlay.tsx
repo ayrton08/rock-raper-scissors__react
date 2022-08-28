@@ -1,18 +1,17 @@
+import { useEffect, useState } from "react";
 import { Button, Grid } from "@mui/material";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import Brightness1Icon from "@mui/icons-material/Brightness1";
 import NoteIcon from "@mui/icons-material/Note";
 import ContentCutIcon from "@mui/icons-material/ContentCut";
 import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
 import { useStore } from "../hooks/useStore";
 import { setPlay } from "../store/game/thunks";
-import { useEffect, useState } from "react";
 import { setMyPlay } from "../store/game/gameSlice";
 import Divider from "@mui/material/Divider";
 import Swal from "sweetalert2";
 
-import { useAppSelector, useAppDispatch } from "../hooks/useReduxTypes";
+import { useAppDispatch } from "../hooks/useReduxTypes";
 
 export const ChoosePlay = () => {
   const dispatch = useAppDispatch();

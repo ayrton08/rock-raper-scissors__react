@@ -2,14 +2,14 @@ import { Grid, TextField, Button, Alert } from "@mui/material";
 import ArrowForwardTwoToneIcon from "@mui/icons-material/ArrowForwardTwoTone";
 
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "../hooks/useForm";
-import { setFirstRound, setPlayerOn, setRoomId } from "../store/game/gameSlice";
-import { getRtdbRoomId, setPlay, setStatusPlayer } from "../store/game/thunks";
+import { setFirstRound, setRoomId } from "../store/game/gameSlice";
+import { getRtdbRoomId } from "../store/game/thunks";
 import { setNamePlayerTwo } from "../store/player/playerSlice";
 import { useNavigate } from "react-router-dom";
 
-import { useAppDispatch, useAppSelector } from "../hooks/useReduxTypes";
+import { useAppDispatch } from "../hooks/useReduxTypes";
+import { useStore } from "../hooks/useStore";
 
 const initialState: { code: string } = {
   code: "",
@@ -21,14 +21,12 @@ const initialStateName: { fullname: string } = {
 
 export const EnterRoom = () => {
   const navigate = useNavigate();
+  const [error, setError] = useState(false);
+  const dispatch = useAppDispatch();
   const { code, onInputChange } = useForm(initialState);
   const { fullname, onInputChange: inputName } = useForm(initialStateName);
-  const dispatch = useAppDispatch();
-  const [error, setError] = useState(false);
 
-  const { roomId, rtdbRoomId, errorMessage } = useAppSelector(
-    (state) => state.game
-  );
+  const { roomId, rtdbRoomId, errorMessage } = useStore();
 
   useEffect(() => {
     dispatch(setFirstRound(false));
@@ -38,7 +36,6 @@ export const EnterRoom = () => {
     if (code.length <= 0) {
       return setError(true);
     }
-
     dispatch(setRoomId(code));
   };
 

@@ -1,10 +1,10 @@
 import { Routes, Route, Navigate } from "react-router-dom";
-import { CheckingAuth } from "../ui/components/CheckingAuth";
-import { Welcome } from "../pages";
-import { Game } from "../pages/Game";
-import { Result } from "../pages/Result";
+import { Welcome, Game, Result } from "../pages";
 
 export const AppRouter = () => {
+
+  // todo: agregar filtro de ruta si noy hay roomId redireccionar
+  
   return (
     <Routes>
       <Route path="/" element={<Welcome />} />
