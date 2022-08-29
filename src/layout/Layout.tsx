@@ -71,18 +71,41 @@ export const Layout = ({ children, title }: any) => {
           backgroundColor: "white",
         }}
       >
-        <strong>Room : {roomId}</strong>
+        <strong>
+          Room : <strong style={{ color: "red" }}>{roomId}</strong>
+        </strong>
 
         <Grid container direction="row">
-          <strong>Players: </strong>{" "}
-          <i style={{ color: "green", alignContent: "center" }}>
-            <PersonIcon />
+          <strong
+            style={{
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            Players:
+          </strong>
+          <i
+            style={{
+              color: "green",
+              display: "flex",
+              alignItems: "center",
+              marginLeft: "20px",
+            }}
+          >
+            <PersonIcon sx={{ margin: "10px" }} />
             {dataRoom.jugador1?.fullName || dataRoom.jugador1?.name || (
               <CircularProgress size={"20px"} />
             )}
-          </i>{" "}
-          <i style={{ color: "green" }}>
-            <PersonIcon />
+          </i>
+          <i
+            style={{
+              color: "green",
+              display: "flex",
+              alignItems: "center",
+              marginLeft: "10px",
+            }}
+          >
+            <PersonIcon sx={{ margin: "10px" }} />
             {firstRound
               ? dataRoom.jugador2?.name ||
                 dataRoom.jugador2?.fullName || (

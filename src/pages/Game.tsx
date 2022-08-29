@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { WaitRoom } from "../components/WaitRoom";
 import { useListenRoom } from "../hooks/useListenRoom";
 import { useStore } from "../hooks/useStore";
-import { Layout } from "../layout/Layaout";
+import { Layout } from "../layout/Layout";
 import { setPlayerOn } from "../store/game/gameSlice";
 import { useAppDispatch } from "../hooks/useReduxTypes";
 

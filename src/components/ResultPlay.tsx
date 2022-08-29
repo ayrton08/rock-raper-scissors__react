@@ -1,6 +1,6 @@
 import { Grid } from "@mui/material";
 import { useStore } from "../hooks/useStore";
-import { Layout } from "../layout/Layaout";
+import { Layout } from "../layout/Layout";
 import { setFirstRound } from "../store/game/gameSlice";
 import { HistoryGame } from "../ui";
 import { useAppDispatch } from "../hooks/useReduxTypes";

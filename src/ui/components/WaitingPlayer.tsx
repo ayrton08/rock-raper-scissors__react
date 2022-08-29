@@ -1,6 +1,6 @@
 import { CircularProgress, Grid } from "@mui/material";
 import { useStore } from "../../hooks/useStore";
-import { Layout } from "../../layout/Layaout";
+import { Layout } from "../../layout/Layout";
 
 export const WaitingPlayer = () => {
   const { dataRoom, player } = useStore();
