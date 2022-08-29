@@ -17,14 +17,14 @@ export const ChoosePlay = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const { dataRoom, player, rtdbRoomId, myPlay } = useStore();
-  const [name, setName] = useState("");
-  const [gamble, setGamble] = useState("");
-  const [efectRock, setEfectRock] = useState("");
-  const [efectPaper, setEfectPaper] = useState("");
-  const [efectSccisor, setEfectSccisor] = useState("");
-  const [selectedRock, setSelectedRock] = useState(false);
-  const [selectedPaper, setSelectedPaper] = useState(false);
-  const [selectedSccisor, setSelectedSccisor] = useState(false);
+  const [name, setName] = useState<string>("");
+  const [gamble, setGamble] = useState<string>("");
+  const [efectRock, setEfectRock] = useState<string>("");
+  const [efectPaper, setEfectPaper] = useState<string>("");
+  const [efectSccisor, setEfectSccisor] = useState<string>("");
+  const [selectedRock, setSelectedRock] = useState<boolean>(false);
+  const [selectedPaper, setSelectedPaper] = useState<boolean>(false);
+  const [selectedSccisor, setSelectedSccisor] = useState<boolean>(false);
 
   useEffect(() => {
     if (player === 1) {
