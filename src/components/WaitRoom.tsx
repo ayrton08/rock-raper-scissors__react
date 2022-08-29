@@ -17,11 +17,11 @@ export const WaitRoom = () => {
   ) : isWaiting ? (
     <Grid
       container
-      justifyContent="center"
+      justifyContent="space-evenly"
       alignItems="center"
       direction="column"
       sx={{
-        height: "500px",
+        height: "100%",
         gap: "40px",
       }}
     >
@@ -40,11 +40,11 @@ export const WaitRoom = () => {
   ) : (
     <Grid
       container
-      justifyContent="center"
+      justifyContent="space-evenly"
       alignContent="center"
       alignItems="center"
       direction="column"
-      sx={{ width: "100%", height: "500px", gap: "50px" }}
+      sx={{ width: "100%", height: "100%", gap: "50px" }}
     >
       <h3 style={{ fontSize: "25px" }}>
         Press{" "}

@@ -25,17 +25,20 @@ export const Intro = () => {
   return (
     <Grid
       container
-      justifyContent="center"
+      justifyContent="space-evenly"
       alignItems="center"
+      alignContent="center"
+      alignSelf="center"
+      textAlign="center"
       direction="column"
       sx={{
-        gap: "30px",
+        height: "100%",
       }}
       className={efect}
     >
       <h1 className="title">Rock, paper or scissors</h1>
       <h3 className="efect-machine">Welcome, let's play...</h3>
-      <Grid container justifyContent="center" sx={{ gap: "40px" }}>
+      <Grid container justifyContent="center" sx={{ gap: "30px" }}>
         <Button
           onClick={newGame}
           variant="contained"

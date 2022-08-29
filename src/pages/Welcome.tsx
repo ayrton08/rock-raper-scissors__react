@@ -33,6 +33,7 @@ export const Welcome = () => {
         container
         justifyContent="center"
         height="100vh"
+        width="100%"
         className="welcome"
       >
         {playerOn && player === 1 && <NewGame />}

@@ -22,12 +22,6 @@ export const Game = () => {
     }
   }, [dataRoom]);
 
-  // useEffect(() => {
-  //   if (fullnamePlayerTwo === dataRoom.jugador1?.fullName) {
-  //     dispatch(setPlayerOn(1));
-  //   }
-  // }, [dataRoom]);
-
   useListenRoom();
 
   return (

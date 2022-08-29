@@ -60,7 +60,7 @@ export const NewGame = () => {
       alignContent="center"
       alignItems="center"
       direction="column"
-      sx={{ width: "500px", height: "400px" }}
+      sx={{ width: "500px", height: "400px", margin: "20px" }}
       className="animate__animated animate__fadeInUp glass-efect"
     >
       <h3 className="your-name">Your Name</h3>

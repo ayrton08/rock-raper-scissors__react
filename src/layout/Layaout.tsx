@@ -1,24 +1,24 @@
 import { CircularProgress, Grid, Typography } from "@mui/material";
 import { useStore } from "../hooks/useStore";
 import Divider from "@mui/material/Divider";
-import { useBeforeunload } from "react-beforeunload";
 import PersonIcon from "@mui/icons-material/Person";
 
 export const Layout = ({ children, title }: any) => {
   const { dataRoom, resultGame, roomId, firstRound } = useStore();
 
-
   return (
     <Grid
       container
-      direction="column"
       alignItems="center"
+      alignSelf="center"
+      direction="column"
       justifyContent="center"
-      sx={{ height: "100vh", padding: 4, gap: "10px" }}
+      width="100%"
+      sx={{ height: "100vh", padding: 1, gap: "10px" }}
       className="welcome"
     >
       <Grid
-        item
+        container
         className="box-shadow"
         justifyContent="space-between"
         sx={{
@@ -33,23 +33,28 @@ export const Layout = ({ children, title }: any) => {
           opacity: "0.8",
           padding: 3,
           borderRadius: 2,
-          height: "600px",
-          width: { md: 550, xs: 350 },
+          height: { md: 550, xs: 400 },
+          width: { md: 550, xs: 320 },
         }}
       >
         <Grid
           container
-          direction="row"
-          justifyContent="center"
+          direction="column"
+          justifyContent="space-evenly"
           className="animate__animated animate__fadeIn"
         >
-          <Typography variant="h5" sx={{ mb: 1, alignContent: "center" }}>
+          <Typography
+            variant="h5"
+            sx={{ mb: 1, alignContent: "center" }}
+            textAlign="center"
+          >
             {title}
+            <Divider variant="middle" />
           </Typography>
         </Grid>
-        <Divider variant="middle" />
-
-        {children}
+        <Grid justifyContent="space-evenly" alignItems="center" width="100%">
+          {children}
+        </Grid>
       </Grid>
       <Grid
         container
@@ -59,7 +64,7 @@ export const Layout = ({ children, title }: any) => {
             location.pathname === "/game" || location.pathname === "/result"
               ? "inherit"
               : "none",
-          width: { md: 550, xs: 350 },
+          width: { md: 550, xs: 320 },
           opacity: "0.8",
           padding: 2,
           borderRadius: 2,
@@ -80,7 +85,9 @@ export const Layout = ({ children, title }: any) => {
             <PersonIcon />
             {firstRound
               ? dataRoom.jugador2?.name ||
-                dataRoom.jugador2?.fullName || <CircularProgress size={"20px"} />
+                dataRoom.jugador2?.fullName || (
+                  <CircularProgress size={"20px"} />
+                )
               : (!firstRound && dataRoom.jugador2?.fullName) ||
                 dataRoom.jugador2?.nam}
           </i>

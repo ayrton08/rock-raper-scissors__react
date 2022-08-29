@@ -10,12 +10,11 @@ export const WaitingPlayer = () => {
       <Layout title="Time to wait">
         <Grid
           container
-          justifyContent="center"
+          justifyContent="space-evenly"
           alignItems="center"
           direction="column"
           sx={{
-            height: "500px",
-            gap: "40px",
+            height: "100%",
           }}
         >
           {player === 1 ? (

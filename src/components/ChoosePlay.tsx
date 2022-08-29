@@ -77,75 +77,82 @@ export const ChoosePlay = () => {
         container
         justifyContent="space-around"
         direction="column"
-        sx={{ height: "100%" }}
+        sx={{ height: "100%", width: "100%" }}
       >
-        <Grid container justifyContent="center">
-          <CountdownCircleTimer
-            isPlaying
-            duration={5}
-            colors={["#004777", "#F7B801", "#A30000", "#A30000"]}
-            colorsTime={[7, 5, 2, 0]}
-            strokeWidth={20}
-            onComplete={(): any => {
-              if (!myPlay) {
-                return Swal.fire(
-                  "Time Over",
-                  "Try again, don't forget to play",
-                  "error"
-                );
-              }
-            }}
-          >
-            {({ remainingTime }) => remainingTime}
-          </CountdownCircleTimer>
-        </Grid>
+        <Grid
+          container
+          direction="column"
+          justifyContent="space-evenly"
+          height="100%"
+        >
+          <Grid alignSelf="center">
+            <CountdownCircleTimer
+              isPlaying
+              duration={5}
+              colors={["#004777", "#F7B801", "#A30000", "#A30000"]}
+              colorsTime={[7, 5, 2, 0]}
+              strokeWidth={15}
+              onComplete={(): any => {
+                if (!myPlay) {
+                  return Swal.fire(
+                    "Time Over",
+                    "Try again, don't forget to play",
+                    "error"
+                  );
+                }
+              }}
+            >
+              {({ remainingTime }) => remainingTime}
+            </CountdownCircleTimer>
+          </Grid>
 
-        <Divider variant="middle" />
-        <Grid container justifyContent="center" sx={{ gap: "50px" }}>
-          <Button
-            onClick={() => {
-              setSelectedRock(true);
-              setGamble("rock");
-              setEfectRock("animate__animated animate__shakeY");
-            }}
-            className={efectRock}
-            sx={{
-              backgroundColor: selectedRock ? "green" : "",
-            }}
-            disabled={selectedPaper && selectedRock && selectedSccisor}
-          >
-            <Brightness1Icon sx={{ fontSize: 100 }} />
-          </Button>
+          <Divider variant="middle" />
+          <Grid container justifyContent="space-evenly">
+            <Button
+              onClick={() => {
+                setSelectedRock(true);
+                setGamble("rock");
+                setEfectRock("animate__animated animate__shakeY");
+              }}
+              className={efectRock}
+              sx={{
+                backgroundColor: selectedRock ? "green" : "",
+              }}
+              disabled={selectedPaper && selectedRock && selectedSccisor}
+            >
+              <Brightness1Icon sx={{ fontSize: { md: 100, xs: 70 } }} />
+            </Button>
 
-          <Button
-            onClick={() => {
-              setSelectedPaper(true);
-              setGamble("paper");
-              setEfectPaper("animate__animated animate__shakeY");
-            }}
-            className={efectPaper}
-            sx={{
-              backgroundColor: selectedPaper ? "green" : "",
-            }}
-            disabled={selectedPaper && selectedRock && selectedSccisor}
-          >
-            <NoteIcon sx={{ fontSize: 100 }} />
-          </Button>
+            <Button
+              onClick={() => {
+                setSelectedPaper(true);
+                setGamble("paper");
+                setEfectPaper("animate__animated animate__shakeY");
+              }}
+              className={efectPaper}
+              sx={{
+                backgroundColor: selectedPaper ? "green" : "",
+              }}
+              disabled={selectedPaper && selectedRock && selectedSccisor}
+            >
+              <NoteIcon sx={{ fontSize: { md: 100, xs: 70 } }} />
+            </Button>
 
-          <Button
-            onClick={() => {
-              setSelectedSccisor(true);
-              setGamble("scissor");
-              setEfectSccisor("animate__animated animate__shakeY");
-            }}
-            className={efectSccisor}
-            sx={{
-              backgroundColor: selectedSccisor ? "green" : "",
-            }}
-            disabled={selectedPaper && selectedRock && selectedSccisor}
-          >
-            <ContentCutIcon sx={{ fontSize: 100 }} />
-          </Button>
+            <Button
+              onClick={() => {
+                setSelectedSccisor(true);
+                setGamble("scissor");
+                setEfectSccisor("animate__animated animate__shakeY");
+              }}
+              className={efectSccisor}
+              sx={{
+                backgroundColor: selectedSccisor ? "green" : "",
+              }}
+              disabled={selectedPaper && selectedRock && selectedSccisor}
+            >
+              <ContentCutIcon sx={{ fontSize: { md: 100, xs: 70 } }} />
+            </Button>
+          </Grid>
         </Grid>
       </Grid>
     </>

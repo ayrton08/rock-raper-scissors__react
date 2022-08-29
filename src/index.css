@@ -1,6 +1,11 @@
 body {
   margin: 0;
 }
+h3,
+h1 {
+  padding: 0;
+  margin: 0;
+}
 
 .welcome {
   background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
@@ -38,6 +43,7 @@ body {
 .title {
   font-size: 55px;
   font-family: "Silkscreen", cursive;
+  padding: 10px;
 }
 
 .welcome-text {

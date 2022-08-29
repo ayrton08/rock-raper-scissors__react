@@ -42,9 +42,8 @@ export const HistoryGame = ({ result }: any) => {
         container
         direction="column"
         textAlign="center"
-        justifyContent="center"
+        justifyContent="space-evenly"
         sx={{
-          minHeight: "400px",
           gap: "30px",
           letterSpacing: "2px",
         }}
@@ -86,6 +85,7 @@ export const HistoryGame = ({ result }: any) => {
           fontWeight: "bold",
           fontFamily: "Anton",
           letterSpacing: "3px",
+          marginTop: "20px",
         }}
         onClick={playAgain}
         className="animate__animated animate__tada"
