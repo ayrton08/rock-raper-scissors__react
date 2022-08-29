@@ -42,6 +42,7 @@ export const Layout = ({ children, title }: any) => {
           direction="column"
           justifyContent="space-evenly"
           className="animate__animated animate__fadeIn"
+          height="60px"
         >
           <Typography
             variant="h5"
