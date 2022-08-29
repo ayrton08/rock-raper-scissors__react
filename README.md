@@ -2,11 +2,12 @@
 
 Rock, Paper or Sccisors is an online game based on the concept of rooms.
 
-<!-- <p align="center">
-<img  src="https://user-images.githubusercontent.com/58791994/182286742-5a2d7b83-83f5-436c-b000-5af08534ae6c.png" width="32%" height='100px'>
-<img  src="https://user-images.githubusercontent.com/58791994/182281334-c9668c48-7148-4034-8da1-23e8bf201799.png" width="32%" height='100px'>
-<img  src="https://user-images.githubusercontent.com/58791994/182282339-1704c72a-1c33-4f58-8811-1c1f6c270e34.png" width="32%" height='100px'>
-</p> -->
+<p align="center">
+<img  src="https://raw.githubusercontent.com/ayrton08/Rock-Paper-or-Scissors-react-version-/main/public/1.jpeg" width="25%" height='200px'>
+<img  src="https://raw.githubusercontent.com/ayrton08/Rock-Paper-or-Scissors-react-version-/main/public/2.jpeg" width="25%" height='200px'>
+<img  src="https://raw.githubusercontent.com/ayrton08/Rock-Paper-or-Scissors-react-version-/main/public/3.jpeg" width="25%" height='200px'>
+<img  src="https://raw.githubusercontent.com/ayrton08/Rock-Paper-or-Scissors-react-version-/main/public/4.jpeg" width="25%" height='200px'>
+</p>
 
 ## Why I did it ?
 
