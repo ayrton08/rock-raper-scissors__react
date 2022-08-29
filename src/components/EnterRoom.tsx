@@ -51,7 +51,7 @@ export const EnterRoom = () => {
       return navigate("/game", { replace: true });
     }
 
-    if (fullname === dataRoom.jugador2?.name) {
+    if (fullname === dataRoom.jugador2?.name || !dataRoom.jugador2) {
       dispatch(setPlayerOn(2));
       dispatch(setNamePlayerTwo(fullname));
       return navigate("/game", { replace: true });
