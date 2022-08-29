@@ -51,9 +51,13 @@ export const EnterRoom = () => {
       return navigate("/game", { replace: true });
     }
 
-    dispatch(setPlayerOn(2));
-    dispatch(setNamePlayerTwo(fullname));
-    navigate("/game", { replace: true });
+    if (fullname === dataRoom.jugador2?.name) {
+      dispatch(setPlayerOn(2));
+      dispatch(setNamePlayerTwo(fullname));
+      return navigate("/game", { replace: true });
+    }
+
+    setError(true);
   };
 
   useEffect(() => {
@@ -134,7 +138,7 @@ export const EnterRoom = () => {
       />
       <Grid container display={!!error ? "" : "none"} sx={{ mt: 1, mb: 1 }}>
         <Grid item xs={12}>
-          <Alert severity="error">Insert a name</Alert>
+          <Alert severity="error">Insert a valid name</Alert>
         </Grid>
       </Grid>
       <Button onClick={start} sx={{ fontSize: "20px", border: "solid 1px" }}>
