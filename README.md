@@ -9,6 +9,23 @@ Rock, Paper or Sccisors is an online game based on the concept of rooms.
 <img  src="https://raw.githubusercontent.com/ayrton08/Rock-Paper-or-Scissors-react-version-/main/public/4.jpeg" width="22%" height='200px'>
 </p>
 
+## Demo
+
+[Rock, paper os sccisors](https://rock-paper-scissors-ayrton.vercel.app) 🪨🧻✂️
+
+## Api Documentation
+
+[Postman Documentation](https://documenter.getpostman.com/view/19402742/UyxkkRM3)
+
+## Features
+
+**_Entering a new game, with the name of the player a game room can be created, a fetch is made to the API where the room is created in Firebase and an easy-to-manipulate code is returned to access the created room._**
+
+**_Rock-paper-scissors can then be played online when a second player enters the created room.
+You can only re-enter the room with the code and names used in the first game._**
+
+**_The history of the game will take forever_**
+
 ## Why I did it ?
 
 Actually this project is a remake of another project on the same game that had been built with Typescript only, the first time when I built it, it helped me a lot to integrate even better the concepts of asynchrony and use different databases.
@@ -19,7 +36,7 @@ As I already said, the original project was built with Typescript, but it was ti
 
 ## Installation
 
-Use the package manager [yarn] or [npm] to install the project.
+Use the package manager yarn or npm to install the project.
 
 ```bash
 yarn && yarn dev
