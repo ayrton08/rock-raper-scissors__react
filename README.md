@@ -2,11 +2,11 @@
 
 Rock, Paper or Sccisors is an online game based on the concept of rooms.
 
-<p align="center">
-<img  src="https://raw.githubusercontent.com/ayrton08/Rock-Paper-or-Scissors-react-version-/main/public/1.jpeg" width="18%" height='200px'>
-<img  src="https://raw.githubusercontent.com/ayrton08/Rock-Paper-or-Scissors-react-version-/main/public/2.jpeg" width="18%" height='200px'>
-<img  src="https://raw.githubusercontent.com/ayrton08/Rock-Paper-or-Scissors-react-version-/main/public/3.jpeg" width="18%" height='200px'>
-<img  src="https://raw.githubusercontent.com/ayrton08/Rock-Paper-or-Scissors-react-version-/main/public/4.jpeg" width="18%" height='200px'>
+<p align="center" width="100%">
+<img  src="https://raw.githubusercontent.com/ayrton08/Rock-Paper-or-Scissors-react-version-/main/public/1.jpeg" width="22%" height='200px'>
+<img  src="https://raw.githubusercontent.com/ayrton08/Rock-Paper-or-Scissors-react-version-/main/public/2.jpeg" width="22%" height='200px'>
+<img  src="https://raw.githubusercontent.com/ayrton08/Rock-Paper-or-Scissors-react-version-/main/public/3.jpeg" width="22%" height='200px'>
+<img  src="https://raw.githubusercontent.com/ayrton08/Rock-Paper-or-Scissors-react-version-/main/public/4.jpeg" width="22%" height='200px'>
 </p>
 
 ## Why I did it ?
