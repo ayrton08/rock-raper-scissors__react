@@ -1,6 +1,6 @@
 type Play = "rock" | "paper" | "scissor";
 
-export const getWinner = (playOne: Play, playTwo: Play) => {
+export const getWinner = (playOne: Play, playTwo: Play): null | string => {
   if (!playOne || !playTwo) {
     return null;
   }

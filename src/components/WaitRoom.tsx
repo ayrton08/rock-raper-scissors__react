@@ -5,7 +5,7 @@ import { ChoosePlay } from "./ChoosePlay";
 
 export const WaitRoom = () => {
   const { dataRoom, setStatus, player } = useStore();
-  const [isWaiting, setIsWaiting] = useState(false);
+  const [isWaiting, setIsWaiting] = useState<boolean>(false);
 
   const setOnline = () => {
     setIsWaiting(true);

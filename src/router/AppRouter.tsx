@@ -1,15 +1,18 @@
 import { Routes, Route, Navigate } from "react-router-dom";
+import { useStore } from "../hooks/useStore";
 import { Welcome, Game, Result } from "../pages";
 
 export const AppRouter = () => {
+  const { roomId } = useStore();
 
-  // todo: agregar filtro de ruta si noy hay roomId redireccionar
-  
   return (
     <Routes>
       <Route path="/" element={<Welcome />} />
-      <Route path="/game" element={<Game />} />
-      <Route path="/result" element={<Result />} />
+      <Route path="/game" element={!roomId ? <Navigate to="/" /> : <Game />} />
+      <Route
+        path="/result"
+        element={!roomId ? <Navigate to="/" /> : <Result />}
+      />
     </Routes>
   );
 };

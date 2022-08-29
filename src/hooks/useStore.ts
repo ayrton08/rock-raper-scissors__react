@@ -22,7 +22,7 @@ export const useStore = () => {
 
   const dispatch = useAppDispatch();
 
-  const setStatus = (online: boolean) => {
+  const setStatus = (online: boolean): void => {
     if (player === 1) {
       dispatch(
         setStatusPlayer({
@@ -46,7 +46,7 @@ export const useStore = () => {
     }
   };
 
-  const setWhoWin = (result: string) => {
+  const setWhoWin = (result: string): void => {
     if (player === 1 && result === "win") {
       dispatch(setResultGame("win"));
     }
@@ -72,7 +72,7 @@ export const useStore = () => {
   const history2 = dataRoom.history?.player2 || 0;
   const playerString = player?.toString() || 0;
 
-  const setHistoryGame = () => {
+  const setHistoryGame = (): void => {
     if (player === 1 && resultGame === "win") {
       const victory = history1 + 1;
       dispatch(setHistory({ player: playerString, rtdbRoomId, victory }));

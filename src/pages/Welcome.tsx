@@ -13,16 +13,16 @@ export const Welcome = () => {
   const dispatch = useAppDispatch();
   const { playerOn, player, userId, roomId } = useStore();
 
-  const [efect, setEfect] = useState("");
+  const [efect, setEfect] = useState<string>("");
 
-  const newGame = () => {
+  const newGame = (): void => {
     setEfect("animate__animated animate__fadeOutUp");
     setTimeout(() => {
       dispatch(setPlayerOn(1));
     }, 200);
   };
 
-  const enterARoom = () => {
+  const enterARoom = (): void => {
     setEfect("animate__animated animate__fadeOutUp");
     setTimeout(() => {
       dispatch(setPlayerOn(2));

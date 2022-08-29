@@ -22,8 +22,8 @@ export const NewGame = () => {
   const dispatch = useAppDispatch();
   const { roomId } = useStore();
   const { fullname, onInputChange } = useForm(initialState);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [error, setError] = useState<boolean>(false);
 
   const startGame = () => {
     if (fullname.length <= 0) {

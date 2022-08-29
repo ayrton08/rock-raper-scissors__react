@@ -7,8 +7,8 @@ import { WaitingPlayer, Playing } from "../ui";
 export const Result = () => {
   const { dataRoom, resultGame, setWhoWin, setHistoryGame, setStatus } =
     useStore();
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [isWaiting, setIsWaiting] = useState(true);
+  const [isPlaying, setIsPlaying] = useState<boolean>(false);
+  const [isWaiting, setIsWaiting] = useState<boolean>(true);
 
   useEffect(() => {
     const result = getWinner(

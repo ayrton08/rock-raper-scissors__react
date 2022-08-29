@@ -5,9 +5,8 @@ import { setDataRoom } from "../store/game/gameSlice";
 import { useAppSelector, useAppDispatch } from "./useReduxTypes";
 
 export const useListenRoom = () => {
-  const { rtdbRoomId } = useAppSelector((state) => state.game);
-
   const dispatch = useAppDispatch();
+  const { rtdbRoomId } = useAppSelector((state) => state.game);
 
   useEffect(() => {
     const chatroomsRef = ref(rtdb, "/rooms/" + rtdbRoomId);
