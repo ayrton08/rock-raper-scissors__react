@@ -3,13 +3,18 @@ import ArrowForwardTwoToneIcon from "@mui/icons-material/ArrowForwardTwoTone";
 
 import { useEffect, useState } from "react";
 import { useForm } from "../hooks/useForm";
-import { setFirstRound, setRoomId } from "../store/game/gameSlice";
+import { setFirstRound, setPlayerOn, setRoomId } from "../store/game/gameSlice";
 import { getRtdbRoomId } from "../store/game/thunks";
-import { setNamePlayerTwo } from "../store/player/playerSlice";
+import {
+  setNamePlayerTwo,
+  setNamePlayerOne,
+} from "../store/player/playerSlice";
 import { useNavigate } from "react-router-dom";
 
 import { useAppDispatch } from "../hooks/useReduxTypes";
 import { useStore } from "../hooks/useStore";
+
+import { useListenRoom } from "../hooks/useListenRoom";
 
 const initialState: { code: string } = {
   code: "",
@@ -26,16 +31,13 @@ export const EnterRoom = () => {
   const { code, onInputChange } = useForm(initialState);
   const { fullname, onInputChange: inputName } = useForm(initialStateName);
 
-  const { roomId, rtdbRoomId, errorMessage } = useStore();
-
-  useEffect(() => {
-    dispatch(setFirstRound(false));
-  }, []);
+  const { roomId, rtdbRoomId, errorMessage, dataRoom, setStatus } = useStore();
 
   const onIntoRoom = () => {
     if (code.length <= 0) {
       return setError(true);
     }
+    dispatch(setFirstRound(false));
     dispatch(setRoomId(code));
   };
 
@@ -43,6 +45,13 @@ export const EnterRoom = () => {
     if (fullname.length <= 0) {
       return setError(true);
     }
+    if (fullname === dataRoom.jugador1?.name) {
+      dispatch(setPlayerOn(1));
+      dispatch(setNamePlayerOne(fullname));
+      return navigate("/game", { replace: true });
+    }
+
+    dispatch(setPlayerOn(2));
     dispatch(setNamePlayerTwo(fullname));
     navigate("/game", { replace: true });
   };
@@ -52,6 +61,8 @@ export const EnterRoom = () => {
       dispatch(getRtdbRoomId(roomId));
     }
   }, [roomId]);
+
+  useListenRoom();
 
   return !rtdbRoomId ? (
     <Grid

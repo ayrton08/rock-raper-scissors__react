@@ -9,14 +9,12 @@ import { useAppDispatch } from "../hooks/useReduxTypes";
 
 export const Game = () => {
   const dispatch = useAppDispatch();
-  const { setStatus, roomId, dataRoom, firstRound, fullnamePlayerTwo } =
+  const { setStatus, roomId, dataRoom, firstRound, fullnamePlayerTwo, player } =
     useStore();
 
   useEffect(() => {
-    if (firstRound) {
-      setStatus(true);
-    }
-  }, []);
+    setStatus(false);
+  }, [firstRound]);
 
   useEffect(() => {
     if (!dataRoom.jugador1?.fullName) {
@@ -24,11 +22,11 @@ export const Game = () => {
     }
   }, [dataRoom]);
 
-  useEffect(() => {
-    if (fullnamePlayerTwo === dataRoom.jugador1?.fullName) {
-      dispatch(setPlayerOn(1));
-    }
-  }, [dataRoom]);
+  // useEffect(() => {
+  //   if (fullnamePlayerTwo === dataRoom.jugador1?.fullName) {
+  //     dispatch(setPlayerOn(1));
+  //   }
+  // }, [dataRoom]);
 
   useListenRoom();
 
