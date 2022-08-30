@@ -97,6 +97,7 @@ export const EnterRoom = () => {
         sx={{
           width: "200px",
         }}
+        inputProps={{ min: 0 }}
       />
 
       <Grid

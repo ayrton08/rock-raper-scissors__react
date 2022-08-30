@@ -89,7 +89,6 @@ export const NewGame = () => {
         onClick={startGame}
         sx={{ fontSize: "20px", border: "solid 1px" }}
       >
-        <ArrowForwardTwoToneIcon />
         Start
       </Button>
     </Grid>

@@ -32,7 +32,7 @@ export const Game = () => {
           <Grid
             container
             justifyContent="center"
-            alignContent="center"
+            alignContent="start"
             sx={{
               height: "100%",
             }}
