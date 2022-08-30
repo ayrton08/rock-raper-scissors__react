@@ -133,6 +133,9 @@ export const EnterRoom = () => {
       sx={{ width: "500px", height: "400px" }}
       className="glass-efect"
     >
+      <Back>
+        <ArrowBackIcon fontSize="large" />
+      </Back>
       <h3 className="your-name">Your Name</h3>
       <TextField
         type="text"
@@ -141,6 +144,7 @@ export const EnterRoom = () => {
         name="fullname"
         value={fullname}
         onChange={inputName}
+        autoComplete="off"
       />
       <Grid container display={!!error ? "" : "none"} sx={{ mt: 1, mb: 1 }}>
         <Grid item xs={12}>

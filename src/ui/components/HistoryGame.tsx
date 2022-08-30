@@ -78,7 +78,7 @@ export const HistoryGame = ({ result }: any) => {
       <Button
         variant="contained"
         sx={{
-          fontSize: "20px",
+          fontSize: {xs: "15px", md: "20px"},
           minWidth: "200px",
           alignSelf: "center",
           backgroundColor: "#28B463",

@@ -85,7 +85,7 @@ export const ChoosePlay = () => {
           justifyContent="space-evenly"
           height="100%"
         >
-          <Grid alignSelf="center">
+          <Grid alignSelf="center" sx={{ paddingBottom: { xs: 4, md: 8 } }}>
             <CountdownCircleTimer
               isPlaying
               duration={5}
