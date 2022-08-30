@@ -120,7 +120,7 @@ export const Layout = ({ children, title }: any) => {
         </Grid>
       </Grid>
       <Back>
-        <ArrowBackIcon sx={{ fontSize: "80px" }} />
+        <ArrowBackIcon sx={{ fontSize: { xs: "40px", md: "80px" } }} />
       </Back>
     </Grid>
   );

@@ -14,8 +14,8 @@ export const Back = ({ children }: any) => {
       onClick={reset}
       sx={{
         position: "fixed",
-        top: "30px",
-        left: "30px",
+        top: { xs: "7px", md: "30px" },
+        left: { xs: "7px", md: "30px" },
       }}
     >
       {children}
