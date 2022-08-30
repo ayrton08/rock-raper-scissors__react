@@ -15,11 +15,11 @@ export const ResultPlay = () => {
     <Layout title="History Game">
       <Grid>
         {resultGame === "win" ? (
-          <HistoryGame result="Ganaste" />
+          <HistoryGame result="You Win!" />
         ) : resultGame === "tie" ? (
-          <HistoryGame result="Empate" />
+          <HistoryGame result="Tie" />
         ) : (
-          <HistoryGame result="Perdiste" />
+          <HistoryGame result="You Lost" />
         )}
       </Grid>
     </Layout>

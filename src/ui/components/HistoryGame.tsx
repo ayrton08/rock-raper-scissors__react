@@ -49,7 +49,7 @@ export const HistoryGame = ({ result }: any) => {
         }}
         className="player-result"
       >
-        <h3>{result}</h3>
+        <h3 style={{ fontSize: "45px" }}>{result}</h3>
         <Grid>
           <span>{dataRoom.jugador1.name}</span> ={"  "}
           <strong
@@ -84,7 +84,7 @@ export const HistoryGame = ({ result }: any) => {
           backgroundColor: "#28B463",
           fontWeight: "bold",
           fontFamily: "Anton",
-          letterSpacing: "3px",
+          letterSpacing: "5px",
           marginTop: "20px",
         }}
         onClick={playAgain}
