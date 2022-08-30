@@ -7,12 +7,12 @@ export const AppRouter = () => {
 
   return (
     <Routes>
-      <Route path="/" element={<Welcome />} />
       <Route path="/game" element={!roomId ? <Navigate to="/" /> : <Game />} />
       <Route
         path="/result"
         element={!roomId ? <Navigate to="/" /> : <Result />}
       />
+      <Route path="/*" element={<Welcome />} />
     </Routes>
   );
 };

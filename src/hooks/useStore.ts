@@ -2,6 +2,12 @@ import { setResultGame } from "../store/game/gameSlice";
 import { setHistory, setStatusPlayer } from "../store/game/thunks";
 import { useAppDispatch, useAppSelector } from "./useReduxTypes";
 
+export enum Result {
+  WIN = "win",
+  LOST = "lost",
+  TIE = "tie",
+}
+
 export const useStore = () => {
   const {
     roomId,
@@ -46,26 +52,23 @@ export const useStore = () => {
     }
   };
 
-  const setWhoWin = (result: string): void => {
-    if (player === 1 && result === "win") {
-      dispatch(setResultGame("win"));
-    }
+  const response: any = {
+    win: {
+      1: () => dispatch(setResultGame("win")),
+      2: () => dispatch(setResultGame("lost")),
+    },
+    lost: {
+      1: () => dispatch(setResultGame("lost")),
+      2: () => dispatch(setResultGame("win")),
+    },
+    tie: {
+      1: () => dispatch(setResultGame("tie")),
+      2: () => dispatch(setResultGame("tie")),
+    },
+  };
 
-    if (player === 1 && result === "lost") {
-      dispatch(setResultGame("lost"));
-    }
-
-    if (player === 2 && result === "win") {
-      dispatch(setResultGame("lost"));
-    }
-
-    if (player === 2 && result === "lost") {
-      dispatch(setResultGame("win"));
-    }
-
-    if (result === "tie") {
-      dispatch(setResultGame("tie"));
-    }
+  const setWhoWin = (result: Result): void => {
+    response[result][player]();
   };
 
   const history1 = dataRoom.history?.player1 || 0;

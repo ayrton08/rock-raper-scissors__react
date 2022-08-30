@@ -21,10 +21,6 @@ export const Result = () => {
   }, [isPlaying]);
 
   useEffect(() => {
-    const result = getWinner(
-      dataRoom.jugador1?.choise,
-      dataRoom.jugador2?.choise
-    );
     setHistoryGame();
   }, [resultGame]);
 

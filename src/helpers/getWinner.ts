@@ -1,21 +1,22 @@
+import { Result } from "../hooks/useStore";
 type Play = "rock" | "paper" | "scissor";
 
-export const getWinner = (playOne: Play, playTwo: Play): null | string => {
+export const getWinner = (playOne: Play, playTwo: Play): null | Result => {
   if (!playOne || !playTwo) {
     return null;
   }
   if (playOne === "paper" && playTwo === "rock") {
-    return "win";
+    return Result.WIN;
   }
   if (playOne === "rock" && playTwo === "scissor") {
-    return "win";
+    return Result.WIN;
   }
   if (playOne === "scissor" && playTwo === "paper") {
-    return "win";
+    return Result.WIN;
   }
   if (playOne === playTwo) {
-    return "tie";
+    return Result.TIE;
   } else {
-    return "lost";
+    return Result.LOST;
   }
 };
