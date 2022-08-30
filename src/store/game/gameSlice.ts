@@ -63,6 +63,18 @@ export const gameSlice = createSlice({
     setFirstRound: (state, { payload }: PayloadAction<boolean>) => {
       state.firstRound = payload;
     },
+    cleanState: (state) => {
+      state.playerOn = false;
+      state.player = null;
+      state.userId = null;
+      state.roomId = null;
+      state.rtdbRoomId = null;
+      state.dataRoom = {};
+      state.myPlay = null;
+      state.resultGame = null;
+      state.errorMessage = null;
+      state.firstRound = true;
+    },
   },
 });
 
@@ -77,4 +89,5 @@ export const {
   cleanPlay,
   setErrorMessage,
   setFirstRound,
+  cleanState
 } = gameSlice.actions;

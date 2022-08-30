@@ -1,5 +1,6 @@
 import { Grid, TextField, Button, Alert } from "@mui/material";
 import ArrowForwardTwoToneIcon from "@mui/icons-material/ArrowForwardTwoTone";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 import { useEffect, useState } from "react";
 import { useForm } from "../hooks/useForm";
@@ -15,6 +16,7 @@ import { useAppDispatch } from "../hooks/useReduxTypes";
 import { useStore } from "../hooks/useStore";
 
 import { useListenRoom } from "../hooks/useListenRoom";
+import { Back } from "../ui/components/Back";
 
 const initialState: { code: string } = {
   code: "",
@@ -79,6 +81,10 @@ export const EnterRoom = () => {
       sx={{ width: "500px", height: "400px" }}
       className="animate__animated animate__fadeInUp glass-efect"
     >
+      <Back>
+        <ArrowBackIcon fontSize="large" />
+      </Back>
+
       <h3 className="your-name">Code Room</h3>
       <TextField
         type="number"

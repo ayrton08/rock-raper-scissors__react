@@ -5,6 +5,8 @@ import {
   TextField,
   Alert,
 } from "@mui/material";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+
 import ArrowForwardTwoToneIcon from "@mui/icons-material/ArrowForwardTwoTone";
 import { useForm } from "../hooks/useForm";
 import { setNamePlayerOne } from "../store/player/playerSlice";
@@ -13,6 +15,7 @@ import { useEffect, useState } from "react";
 import { useStore } from "../hooks/useStore";
 
 import { useAppDispatch } from "../hooks/useReduxTypes";
+import { Back } from "../ui/components/Back";
 
 const initialState: { fullname: string } = {
   fullname: "",
@@ -63,6 +66,9 @@ export const NewGame = () => {
       sx={{ width: "500px", height: "400px", margin: "20px" }}
       className="animate__animated animate__fadeInUp glass-efect"
     >
+      <Back>
+        <ArrowBackIcon fontSize="large" />
+      </Back>
       <h3 className="your-name">Your Name</h3>
       <TextField
         type="text"

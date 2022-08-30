@@ -2,6 +2,8 @@ import { CircularProgress, Grid, Typography } from "@mui/material";
 import { useStore } from "../hooks/useStore";
 import Divider from "@mui/material/Divider";
 import PersonIcon from "@mui/icons-material/Person";
+import { Back } from "../ui/components/Back";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 export const Layout = ({ children, title }: any) => {
   const { dataRoom, resultGame, roomId, firstRound } = useStore();
@@ -117,6 +119,9 @@ export const Layout = ({ children, title }: any) => {
           </i>
         </Grid>
       </Grid>
+      <Back>
+        <ArrowBackIcon sx={{ fontSize: "80px" }} />
+      </Back>
     </Grid>
   );
 };
