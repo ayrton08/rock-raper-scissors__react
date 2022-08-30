@@ -51,18 +51,28 @@ h1 {
 }
 
 .efect-machine {
-  font-size: 40px;
+  font-size: 30px;
   display: block;
   font-family: "Anton", sans-serif;
   white-space: "nowrap";
   border-right: 4px solid;
-  height: 60px;
-  width: 20ch;
+  height: 50px;
+  width: 22ch;
   letter-spacing: 2px;
   color: white;
 
   animation: typing 2s steps(25), blink 0.5s infinite step-end alternate;
   overflow: hidden;
+}
+
+@media (min-width: 700px) {
+  .efect-machine {
+    font-size: 50px;
+    border-right: 4px solid;
+    height: 60px;
+    width: 20ch;
+    letter-spacing: 2px;
+  }
 }
 
 @keyframes typing {
