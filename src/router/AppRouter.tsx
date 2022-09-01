@@ -5,7 +5,6 @@ import { Welcome, Game, Result } from "../pages";
 export const AppRouter = () => {
   const { roomId } = useStore();
 
-  console.log("router", roomId);
   return (
     <Routes>
       {roomId ? (

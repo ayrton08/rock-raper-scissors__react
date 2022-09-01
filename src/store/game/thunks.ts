@@ -1,4 +1,15 @@
-import requestApi from "../../api/requestApi";
+import requestApi from "../../api/config";
+import {
+  onAccesToRoom,
+  onAskNewRoom,
+  onCleanPlayRoom,
+  onGetRtdbRoomId,
+  onSetHistory,
+  onSetPlay,
+  onSetStatusPlayer,
+  onSignIn,
+} from "../../api/requests";
+import { CleanPlay, SetHistory, SetPlay, SetStatus } from "./game.models";
 import {
   setRoomId,
   setUserId,
@@ -6,48 +17,24 @@ import {
   setErrorMessage,
 } from "./gameSlice";
 
-interface SetStatus {
-  player: number;
-  online: boolean;
-  name: string | null;
-  rtdbRoomId: string | null;
-}
-
-interface SetPlay {
-  name: string;
-  choise: string;
-  rtdbRoomId: string | null;
-  player: number | null;
-}
-interface SetHistory {
-  rtdbRoomId: string | null;
-  player: string | number;
-  victory: string;
-}
-interface CleanPlay {
-  name: string;
-  player: string;
-  rtdbRoomId: string | null;
-}
-
 export const signIn = (player: string) => {
   return async (dispatch: any) => {
-    const { data } = await requestApi.post("/signup", { name: player });
+    const data = await onSignIn(player);
     dispatch(setUserId(data.id));
   };
 };
 
 export const askNewRoom = (userId: string) => {
   return async (dispatch: any) => {
-    const { data } = await requestApi.post("/rooms", { userId });
+    const data = await onAskNewRoom(userId);
 
     dispatch(setRoomId(data.id));
   };
 };
 
-export const accessToRoom = (roomId: string, userId: string | null) => {
+export const accessToRoom = (roomId: string, userId: string) => {
   return async (dispatch: any) => {
-    const { data } = await requestApi.get(`/room/${roomId}/?userId=${userId}`);
+    const data = await onAccesToRoom(roomId, userId);
 
     dispatch(setRtdbRoomId(data.rtdbRoomId));
   };
@@ -61,11 +48,10 @@ export const setStatusPlayer = ({
 }: SetStatus) => {
   return async (dispatch: any) => {
     if (player) {
-      await requestApi.post(`/status`, {
+      await onSetStatusPlayer({
         player,
         online,
         name,
-        status: true,
         rtdbRoomId,
       });
     }
@@ -75,7 +61,7 @@ export const setStatusPlayer = ({
 export const getRtdbRoomId = (roomId: string) => {
   return async (dispatch: any) => {
     try {
-      const { data } = await requestApi.post("/rtdbRoomId", { roomId });
+      const data = await onGetRtdbRoomId(roomId);
 
       dispatch(setRtdbRoomId(data.rtdbRoomId));
     } catch (error: any) {
@@ -87,33 +73,18 @@ export const getRtdbRoomId = (roomId: string) => {
 
 export const setPlay = ({ name, choise, rtdbRoomId, player }: SetPlay) => {
   return async (dispatch: Function) => {
-    const { data } = await requestApi.post("/play", {
-      name,
-      choise,
-      rtdbRoomId,
-      player,
-    });
+    await onSetPlay({ name, choise, rtdbRoomId, player });
   };
 };
 
 export const setHistory = ({ rtdbRoomId, player, victory }: SetHistory) => {
   return async (dispatch: Function) => {
-    const { data } = await requestApi.post("/history", {
-      rtdbRoomId,
-      player,
-      victory,
-    });
+    await onSetHistory({ rtdbRoomId, player, victory });
   };
 };
 
 export const cleanPlayRoom = ({ name, player, rtdbRoomId }: CleanPlay) => {
   return async (dispatch: any) => {
-    const { data } = await requestApi.post("/cleanPlay", {
-      name,
-      status: true,
-      online: false,
-      player,
-      rtdbRoomId,
-    });
+    await onCleanPlayRoom({ name, player, rtdbRoomId });
   };
 };

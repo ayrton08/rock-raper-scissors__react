@@ -1,17 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { Game } from "./game.models";
 
-interface Game {
-  playerOn: boolean;
-  player: any;
-  userId: string | null;
-  roomId: string | null;
-  rtdbRoomId: string | null;
-  dataRoom: any;
-  myPlay: string | null;
-  resultGame: string | null;
-  errorMessage: string | null;
-  firstRound: boolean;
-}
+
 
 const initialState: Game = {
   playerOn: false,

@@ -1,6 +1,6 @@
 import { ref, onValue } from "firebase/database";
 import { useEffect } from "react";
-import { rtdb } from "../firebase/rtdb";
+import { rtdb } from "../firebase/config";
 import { setDataRoom } from "../store/game/gameSlice";
 import { useAppSelector, useAppDispatch } from "./useReduxTypes";
 
