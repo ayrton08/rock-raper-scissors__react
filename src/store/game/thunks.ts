@@ -32,7 +32,7 @@ export const askNewRoom = (userId: string) => {
   };
 };
 
-export const accessToRoom = (roomId: string, userId: string) => {
+export const accessToRoom = (roomId: string, userId: string | null) => {
   return async (dispatch: any) => {
     const data = await onAccesToRoom(roomId, userId);
 

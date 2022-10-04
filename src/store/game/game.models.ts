@@ -1,7 +1,7 @@
 export interface Game {
   playerOn: boolean;
   player: any;
-  userId: string;
+  userId: string | null;
   roomId: string | null;
   rtdbRoomId: string | null;
   dataRoom: any;

@@ -28,7 +28,7 @@ export const onAskNewRoom = async (userId: string) => {
     };
   }
 };
-export const onAccesToRoom = async (roomId: string, userId: string) => {
+export const onAccesToRoom = async (roomId: string, userId: string | null) => {
   try {
     const { data } = await requestApi.get(`/room/${roomId}/?userId=${userId}`);
     return data;
