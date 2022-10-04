@@ -1,5 +1,4 @@
-import { Button, CircularProgress, Grid } from "@mui/material";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { CircularProgress, Grid } from "@mui/material";
 
 import { setNamePlayerOne } from "../store/player/playerSlice";
 import { signIn } from "../store/game/thunks";
@@ -7,11 +6,7 @@ import { useEffect, useState } from "react";
 import { useStore } from "../hooks/useStore";
 
 import { useAppDispatch } from "../hooks/useReduxTypes";
-import { Back } from "../ui/components/Back";
 
-import { Formik, Form } from "formik";
-import * as Yup from "yup";
-import { MyTextInput } from "./MyTextInput";
 import { FullnameField } from "./FullnameField";
 
 export const NewGame = () => {

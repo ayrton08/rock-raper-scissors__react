@@ -26,6 +26,7 @@ export const FullnameField = ({ submit }: Props) => {
       <Back>
         <ArrowBackIcon fontSize="large" />
       </Back>
+
       <Formik
         initialValues={{ fullname: "" }}
         onSubmit={({ fullname }) => {
@@ -39,6 +40,8 @@ export const FullnameField = ({ submit }: Props) => {
       >
         {(formik) => (
           <Form className="form">
+            <h3 className="your-name">Your Name</h3>
+
             <MyTextInput name="fullname" placeholder="Your Name" />
             <Button
               type="submit"

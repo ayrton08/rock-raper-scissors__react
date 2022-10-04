@@ -90,6 +90,7 @@ h1 {
   font-size: 40px;
   letter-spacing: 2px;
   font-family: "Anton", sans-serif;
+  text-align: center;
 }
 .box-shadow {
   box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2);

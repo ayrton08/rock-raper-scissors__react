@@ -1,9 +1,7 @@
-import { Grid, TextField, Button, Alert } from "@mui/material";
-import ArrowForwardTwoToneIcon from "@mui/icons-material/ArrowForwardTwoTone";
+import { Grid, Button } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
-import { useEffect, useState } from "react";
-import { useForm } from "../hooks/useForm";
+import { useEffect } from "react";
 import { setFirstRound, setPlayerOn, setRoomId } from "../store/game/gameSlice";
 import { getRtdbRoomId } from "../store/game/thunks";
 import {
