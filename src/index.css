@@ -109,3 +109,15 @@ hr {
   background-color: greenyellow;
   border-color: solid 2px;
 }
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.error {
+  border: red solid 2px;
+  text-align: center;
+  color: white;
+  padding: 2px 0px 2px 0px;
+}

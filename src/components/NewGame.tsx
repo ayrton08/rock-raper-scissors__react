@@ -7,7 +7,6 @@ import {
 } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
-import ArrowForwardTwoToneIcon from "@mui/icons-material/ArrowForwardTwoTone";
 import { useForm } from "../hooks/useForm";
 import { setNamePlayerOne } from "../store/player/playerSlice";
 import { signIn } from "../store/game/thunks";
@@ -17,6 +16,10 @@ import { useStore } from "../hooks/useStore";
 import { useAppDispatch } from "../hooks/useReduxTypes";
 import { Back } from "../ui/components/Back";
 
+import { Formik, Form } from "formik";
+import * as Yup from "yup";
+import { MyTextInput } from "./MyTextInput";
+
 const initialState: { fullname: string } = {
   fullname: "",
 };
@@ -24,14 +27,9 @@ const initialState: { fullname: string } = {
 export const NewGame = () => {
   const dispatch = useAppDispatch();
   const { roomId } = useStore();
-  const { fullname, onInputChange } = useForm(initialState);
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [error, setError] = useState<boolean>(false);
 
-  const startGame = () => {
-    if (fullname.length <= 0) {
-      return setError(true);
-    }
+  const startGame = (fullname: string) => {
     setIsLoading(true);
     dispatch(setNamePlayerOne(fullname));
     dispatch(signIn(fullname));
@@ -69,28 +67,29 @@ export const NewGame = () => {
       <Back>
         <ArrowBackIcon fontSize="large" />
       </Back>
-      <h3 className="your-name">Your Name</h3>
-      <TextField
-        type="text"
-        placeholder={"Your Name"}
-        fullWidth
-        name="fullname"
-        value={fullname}
-        onChange={onInputChange}
-        error={error}
-        autoComplete="off"
-      />
-      <Grid container display={!!error ? "" : "none"} sx={{ mt: 1, mb: 1 }}>
-        <Grid item xs={12}>
-          <Alert severity="error">Insert a name</Alert>
-        </Grid>
-      </Grid>
-      <Button
-        onClick={startGame}
-        sx={{ fontSize: "20px", border: "solid 1px" }}
+      <Formik
+        initialValues={{ fullname: "" }}
+        onSubmit={({ fullname }) => {
+          startGame(fullname);
+        }}
+        validationSchema={Yup.object({
+          fullname: Yup.string()
+            .required("The name is required")
+            .min(2, "Must contain at least 2 characters"),
+        })}
       >
-        Start
-      </Button>
+        {(formik) => (
+          <Form className="form">
+            <MyTextInput name="fullname" placeholder="Your Name" />
+            <Button
+              type="submit"
+              sx={{ fontSize: "20px", border: "solid 1px" }}
+            >
+              Start
+            </Button>
+          </Form>
+        )}
+      </Formik>
     </Grid>
   );
 };
