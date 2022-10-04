@@ -18,35 +18,23 @@ import { useStore } from "../hooks/useStore";
 import { useListenRoom } from "../hooks/useListenRoom";
 import { Back } from "../ui/components/Back";
 
-const initialState: { code: string } = {
-  code: "",
-};
-
-const initialStateName: { fullname: string } = {
-  fullname: "",
-};
+import { Formik, Form } from "formik";
+import * as Yup from "yup";
+import { MyTextInput } from "./MyTextInput";
+import { FullnameField } from "./FullnameField";
 
 export const EnterRoom = () => {
   const navigate = useNavigate();
-  const [error, setError] = useState(false);
   const dispatch = useAppDispatch();
-  const { code, onInputChange } = useForm(initialState);
-  const { fullname, onInputChange: inputName } = useForm(initialStateName);
 
-  const { roomId, rtdbRoomId, errorMessage, dataRoom, setStatus } = useStore();
+  const { roomId, rtdbRoomId, dataRoom } = useStore();
 
-  const onIntoRoom = () => {
-    if (code.length <= 0) {
-      return setError(true);
-    }
+  const onIntoRoom = (code: string) => {
     dispatch(setFirstRound(false));
     dispatch(setRoomId(code));
   };
 
-  const start = () => {
-    if (fullname.length <= 0) {
-      return setError(true);
-    }
+  const start = (fullname: string) => {
     if (fullname === dataRoom.jugador1?.name) {
       dispatch(setPlayerOn(1));
       dispatch(setNamePlayerOne(fullname));
@@ -58,8 +46,6 @@ export const EnterRoom = () => {
       dispatch(setNamePlayerTwo(fullname));
       return navigate("/game", { replace: true });
     }
-
-    setError(true);
   };
 
   useEffect(() => {
@@ -84,78 +70,34 @@ export const EnterRoom = () => {
       <Back>
         <ArrowBackIcon fontSize="large" />
       </Back>
-
       <h3 className="your-name">Code Room</h3>
-      <TextField
-        type="number"
-        placeholder="Code Room"
-        fullWidth
-        name="code"
-        value={code}
-        onChange={onInputChange}
-        autoComplete="off"
-        sx={{
-          width: "200px",
+
+      <Formik
+        initialValues={{ code: "" }}
+        onSubmit={({ code }) => {
+          console.log(code);
+          onIntoRoom(code);
         }}
-        inputProps={{ min: 0 }}
-      />
-
-      <Grid
-        container
-        display={errorMessage ? "" : "none"}
-        sx={{ mt: 1, mb: 1 }}
+        validationSchema={Yup.object({
+          code: Yup.string()
+            .required("The code room is required")
+            .max(4, "Must not exceed 4 characters"),
+        })}
       >
-        <Grid item xs={12}>
-          <Alert severity="error">{errorMessage}</Alert>
-        </Grid>
-      </Grid>
-
-      <Grid container display={!!error ? "" : "none"} sx={{ mt: 1, mb: 1 }}>
-        <Grid item xs={12}>
-          <Alert severity="error">Insert a code room</Alert>
-        </Grid>
-      </Grid>
-
-      <Button
-        onClick={onIntoRoom}
-        sx={{ fontSize: "20px", border: "solid 1px" }}
-      >
-        Enter
-      </Button>
+        {(formik) => (
+          <Form className="form">
+            <MyTextInput name="code" placeholder="Code Room" />
+            <Button
+              sx={{ fontSize: "20px", border: "solid 1px" }}
+              type="submit"
+            >
+              Enter
+            </Button>
+          </Form>
+        )}
+      </Formik>
     </Grid>
   ) : (
-    <Grid
-      container
-      justifyContent="space-evenly"
-      alignSelf="center"
-      alignContent="center"
-      alignItems="center"
-      direction="column"
-      sx={{ width: "500px", height: "400px" }}
-      className="glass-efect"
-    >
-      <Back>
-        <ArrowBackIcon fontSize="large" />
-      </Back>
-      <h3 className="your-name">Your Name</h3>
-      <TextField
-        type="text"
-        placeholder="Your Name"
-        fullWidth
-        name="fullname"
-        value={fullname}
-        onChange={inputName}
-        autoComplete="off"
-      />
-      <Grid container display={!!error ? "" : "none"} sx={{ mt: 1, mb: 1 }}>
-        <Grid item xs={12}>
-          <Alert severity="error">Insert a valid name</Alert>
-        </Grid>
-      </Grid>
-      <Button onClick={start} sx={{ fontSize: "20px", border: "solid 1px" }}>
-        <ArrowForwardTwoToneIcon />
-        Start
-      </Button>
-    </Grid>
+    <FullnameField submit={start} />
   );
 };

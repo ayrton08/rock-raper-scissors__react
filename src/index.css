@@ -116,8 +116,10 @@ hr {
   gap: 20px;
 }
 .error {
-  border: red solid 2px;
+  border: red solid 1px;
   text-align: center;
-  color: white;
+  color: red;
   padding: 2px 0px 2px 0px;
+  background-color: white;
+  opacity: 0.7;
 }
