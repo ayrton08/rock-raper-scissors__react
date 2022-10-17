@@ -37,8 +37,11 @@ export const Intro = () => {
         height: "100%",
       }}
       className={efect}
+      data-test="intro-comp"
     >
-      <h1 className="title">Rock, paper or scissors</h1>
+      <h1 className="title" data-test="intro-title">
+        Rock, paper or scissors
+      </h1>
       <h3 className="efect-machine">Welcome, let's play...</h3>
       <Grid
         container

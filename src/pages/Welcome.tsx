@@ -35,6 +35,7 @@ export const Welcome = () => {
         height="100vh"
         width="100%"
         className="welcome"
+        data-test="welcome-page"
       >
         {playerOn && player === 1 && <NewGame />}
         {playerOn && player === 2 && <EnterRoom />}
