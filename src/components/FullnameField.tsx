@@ -39,7 +39,7 @@ export const FullnameField = ({ submit }: Props) => {
         })}
       >
         {(formik) => (
-          <Form className="form">
+          <Form className="form" id="form-name">
             <h3 className="your-name">Your Name</h3>
 
             <MyTextInput name="fullname" placeholder="Your Name" />

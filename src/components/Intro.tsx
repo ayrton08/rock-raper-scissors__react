@@ -5,12 +5,14 @@ import { useAppDispatch } from "../hooks/useReduxTypes";
 
 export const Intro = () => {
   const dispatch = useAppDispatch();
+  const [display, setDisplay] = useState("");
 
   const [efect, setEfect] = useState<string>("");
 
   const newGame = (): void => {
     setEfect("animate__animated animate__fadeOutUp");
     setTimeout(() => {
+      setDisplay("none");
       dispatch(setPlayerOn(1));
     }, 200);
   };
@@ -38,7 +40,12 @@ export const Intro = () => {
     >
       <h1 className="title">Rock, paper or scissors</h1>
       <h3 className="efect-machine">Welcome, let's play...</h3>
-      <Grid container justifyContent="center" sx={{ gap: "30px" }}>
+      <Grid
+        container
+        justifyContent="center"
+        sx={{ gap: "30px" }}
+        display={display}
+      >
         <Button
           onClick={newGame}
           variant="contained"

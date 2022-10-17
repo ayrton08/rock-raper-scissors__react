@@ -8,7 +8,6 @@ import { setPlayerOn } from "../store/game/gameSlice";
 import { useAppDispatch } from "../hooks/useReduxTypes";
 
 export const Game = () => {
-  const dispatch = useAppDispatch();
   const { setStatus, roomId, dataRoom, firstRound, fullnamePlayerTwo, player } =
     useStore();
 

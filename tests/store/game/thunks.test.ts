@@ -1,16 +1,18 @@
 import { setUserId } from "../../../src/store/game/gameSlice";
 import { signIn } from "../../../src/store/game/thunks";
 
-// describe("Test in thunks", () => {
-//   const dispatch = jest.fn();
-//   beforeEach(() => jest.clearAllMocks());
+jest.mock("react-redux");
 
-//   test("signIn should called setUserId", async () => {
-//     const name = "Ayrton";
-//     const res = "srjL7zGhDPvGeOtRCKAa";
+describe("Test in thunks", () => {
+  const dispatch = jest.fn();
+  beforeEach(() => jest.clearAllMocks());
 
-//     await signIn(name)(dispatch);
+  test("signIn should called setUserId", async () => {
+    const name = "Ayrton";
+    const res = "srjL7zGhDPvGeOtRCKAa";
 
-//     expect(dispatch).toHaveBeenCalledWith(setUserId(res));
-//   });
-// });
+    // await signIn(name)(dispatch);
+
+    // expect(dispatch).toHaveBeenCalledWith(setUserId(res));
+  });
+});
