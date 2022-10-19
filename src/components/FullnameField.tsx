@@ -13,6 +13,12 @@ interface Props {
 
 const initialValues = { fullname: "" };
 
+const validate = Yup.object({
+  fullname: Yup.string()
+    .required("The name is required")
+    .min(2, "Must contain at least 2 characters"),
+});
+
 export const FullnameField = ({ submit }: Props) => {
   return (
     <Grid
@@ -32,20 +38,19 @@ export const FullnameField = ({ submit }: Props) => {
       <Formik
         initialValues={initialValues}
         onSubmit={({ fullname }) => {
-          console.log(fullname);
           submit(fullname);
         }}
-        validationSchema={Yup.object({
-          fullname: Yup.string()
-            .required("The name is required")
-            .min(2, "Must contain at least 2 characters"),
-        })}
+        validationSchema={validate}
       >
-        {(formik) => (
+        {({ values, handleChange }) => (
           <Form className="form" id="form-name">
             <h3 className="your-name">Your Name</h3>
 
-            <MyTextInput name="fullname" placeholder="Your Name" />
+            <MyTextInput
+              name="fullname"
+              placeholder="Your Name"
+              onChange={handleChange}
+            />
             <Button
               type="submit"
               sx={{ fontSize: "20px", border: "solid 1px" }}
