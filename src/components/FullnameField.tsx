@@ -11,6 +11,8 @@ interface Props {
   submit: Function;
 }
 
+const initialValues = { fullname: "" };
+
 export const FullnameField = ({ submit }: Props) => {
   return (
     <Grid
@@ -28,8 +30,9 @@ export const FullnameField = ({ submit }: Props) => {
       </Back>
 
       <Formik
-        initialValues={{ fullname: "" }}
+        initialValues={initialValues}
         onSubmit={({ fullname }) => {
+          console.log(fullname);
           submit(fullname);
         }}
         validationSchema={Yup.object({

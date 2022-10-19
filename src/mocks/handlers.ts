@@ -19,6 +19,13 @@ export const handlers = [
       })
     );
   }),
+  rest.post(`${VITE_API_URL}/status`, (req, res, ctx) => {
+    return res(
+      ctx.json({
+        id: "1237",
+      })
+    );
+  }),
   // rest.get(
   //   `${VITE_API_URL}/room/1034?userId=HiKFbhaNEcB3nop5Aak7`,
   //   (req, res, ctx) => {

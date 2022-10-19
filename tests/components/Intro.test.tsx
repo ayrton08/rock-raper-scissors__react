@@ -27,15 +27,4 @@ describe("<Intro />", () => {
     expect(title).toBeDefined();
     expect(buttons.length).toBe(2);
   });
-
-  test("Buttons should desaparecer when buttons are clicked", async () => {
-    // const user = userEvent.setup();
-
-    // const button = screen.getByRole("button", { name: /new game/i });
-    // await user.click(button);
-
-    // const title = screen.queryByText(/rock, paper or scissors/i);
-
-    // expect(title).toBeUndefined();
-  });
 });
