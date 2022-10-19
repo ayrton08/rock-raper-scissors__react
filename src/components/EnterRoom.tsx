@@ -73,7 +73,6 @@ export const EnterRoom = () => {
       <Formik
         initialValues={{ code: "" }}
         onSubmit={({ code }) => {
-          console.log(code);
           onIntoRoom(code);
         }}
         validationSchema={Yup.object({
@@ -82,9 +81,13 @@ export const EnterRoom = () => {
             .max(4, "Must not exceed 4 characters"),
         })}
       >
-        {(formik) => (
+        {({ handleChange }) => (
           <Form className="form">
-            <MyTextInput name="code" placeholder="Code Room" />
+            <MyTextInput
+              name="code"
+              placeholder="Code Room"
+              onChange={handleChange}
+            />
             <Button
               sx={{ fontSize: "20px", border: "solid 1px" }}
               type="submit"

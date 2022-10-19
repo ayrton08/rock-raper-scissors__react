@@ -11,7 +11,7 @@ export const HistoryGame = ({ result }: any) => {
   const { dataRoom, player, rtdbRoomId } = useStore();
   const navigate = useNavigate();
 
-  const playerAsString = player.toString();
+  const playerAsString = player && player.toString();
 
   const playAgain = () => {
     if (player === 1) {
@@ -51,7 +51,7 @@ export const HistoryGame = ({ result }: any) => {
       >
         <h3 style={{ fontSize: "45px" }}>{result}</h3>
         <Grid>
-          <span>{dataRoom.jugador1.name}</span> ={"  "}
+          <span>{dataRoom.jugador1?.name || "Player 1"}</span> ={"  "}
           <strong
             style={{
               fontSize: "40px",
@@ -63,7 +63,7 @@ export const HistoryGame = ({ result }: any) => {
           </strong>
         </Grid>
         <Grid>
-          <span>{dataRoom.jugador2.name}</span> ={" "}
+          <span>{dataRoom.jugador2?.name || "Player 2"}</span> ={" "}
           <strong
             style={{
               fontSize: "40px",
@@ -78,7 +78,7 @@ export const HistoryGame = ({ result }: any) => {
       <Button
         variant="contained"
         sx={{
-          fontSize: {xs: "15px", md: "20px"},
+          fontSize: { xs: "15px", md: "20px" },
           minWidth: "200px",
           alignSelf: "center",
           backgroundColor: "#28B463",
