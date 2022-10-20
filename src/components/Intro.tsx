@@ -48,6 +48,7 @@ export const Intro = () => {
         justifyContent="center"
         sx={{ gap: "30px" }}
         display={display}
+        data-test="intro-buttons"
       >
         <Button
           onClick={newGame}
@@ -58,6 +59,7 @@ export const Intro = () => {
             fontSize: "24px",
             fontFamily: "Anton",
           }}
+          data-test="new-game"
         >
           New Game
         </Button>
@@ -70,6 +72,7 @@ export const Intro = () => {
             fontSize: "24px",
             fontFamily: "Anton",
           }}
+          data-test="enter-room"
         >
           Enter a Room
         </Button>

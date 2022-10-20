@@ -87,10 +87,12 @@ export const EnterRoom = () => {
               name="code"
               placeholder="Code Room"
               onChange={handleChange}
+              data-test="code-room"
             />
             <Button
               sx={{ fontSize: "20px", border: "solid 1px" }}
               type="submit"
+              data-test="save-code"
             >
               Enter
             </Button>

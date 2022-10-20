@@ -119,6 +119,7 @@ export const ChoosePlay = () => {
                 backgroundColor: selectedRock ? "green" : "",
               }}
               disabled={selectedPaper && selectedRock && selectedSccisor}
+              data-test="rock"
             >
               <Brightness1Icon sx={{ fontSize: { md: 100, xs: 70 } }} />
             </Button>
@@ -134,6 +135,7 @@ export const ChoosePlay = () => {
                 backgroundColor: selectedPaper ? "green" : "",
               }}
               disabled={selectedPaper && selectedRock && selectedSccisor}
+              data-test="paper"
             >
               <NoteIcon sx={{ fontSize: { md: 100, xs: 70 } }} />
             </Button>
@@ -149,6 +151,7 @@ export const ChoosePlay = () => {
                 backgroundColor: selectedSccisor ? "green" : "",
               }}
               disabled={selectedPaper && selectedRock && selectedSccisor}
+              data-test="scissor"
             >
               <ContentCutIcon sx={{ fontSize: { md: 100, xs: 70 } }} />
             </Button>

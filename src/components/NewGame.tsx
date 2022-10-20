@@ -35,7 +35,9 @@ export const NewGame = () => {
       sx={{ gap: "50px" }}
       className="animate__animated animate__fadeIn"
     >
-      <h4 style={{ fontSize: "30px" }}>Getting the code room</h4>
+      <h4 style={{ fontSize: "30px" }} data-test="loader-new-room">
+        Getting the code room
+      </h4>
       <CircularProgress size="60px" />
     </Grid>
   ) : (

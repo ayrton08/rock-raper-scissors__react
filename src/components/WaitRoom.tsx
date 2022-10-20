@@ -62,6 +62,7 @@ export const WaitRoom = () => {
           fontFamily: "Anton",
           letterSpacing: "2px",
         }}
+        data-test="button-play"
       >
         Play
       </Button>

@@ -50,10 +50,12 @@ export const FullnameField = ({ submit }: Props) => {
               name="fullname"
               placeholder="Your Name"
               onChange={handleChange}
+              data-test="fullname"
             />
             <Button
               type="submit"
               sx={{ fontSize: "20px", border: "solid 1px" }}
+              data-test="save-name"
             >
               Start
             </Button>
