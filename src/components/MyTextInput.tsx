@@ -16,7 +16,7 @@ export const MyTextInput = ({ label, className, ...props }: Props) => {
   return (
     <>
       <label htmlFor={props.id || props.name}>{label}</label>
-      <TextField {...props} />
+      <TextField {...props} autoComplete="off" />
       <ErrorMessage name={props.name} component="span" className="error" />
     </>
   );
