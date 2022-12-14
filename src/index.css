@@ -8,7 +8,7 @@ h1 {
 }
 
 .welcome {
-  background: linear-gradient(-45deg, #264653, #f4a261, #23a6d5, #e76f51);
+  background: linear-gradient(-45deg, #2aaee2, #bd46db, #23a6d5, #e8d227);
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
   height: 100vh;
